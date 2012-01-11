@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>File Source for example.templateOutput.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+						<h1>Source for file example.templateOutput.php</h1>
+<p>Documentation is available at <a href="../CLICommander/_examples---example.templateOutput.php.html">example.templateOutput.php</a></p>
+<div class="src-code">
+<div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a3"></a><span class="src-inc">require_once&nbsp;</span><span class="src-str">'../CLICommander.class.php'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a4"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-var">$cli&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../CLICommander/CLICommander.html">CLICommander</a></span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a6"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a7"></a><span class="src-var">$cli</span><span class="src-sym">-&gt;</span><span class="src-id">Clear</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a8"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a9"></a><span class="src-var">$output&nbsp;</span>=&nbsp;&lt;&lt;&lt;OUTPUT</div></li>
+<li><div class="src-line"><a name="a10"></a>Welcome&nbsp;to&nbsp;the&nbsp;template&nbsp;example!</div></li>
+<li><div class="src-line"><a name="a11"></a>You&nbsp;can&nbsp;prepare&nbsp;a&nbsp;large&nbsp;amount&nbsp;of&nbsp;text&nbsp;and&nbsp;simply&nbsp;use&nbsp;CLICommander&nbsp;tags&nbsp;to&nbsp;</div></li>
+<li><div class="src-line"><a name="a12"></a>style&nbsp;the&nbsp;text&nbsp;in&nbsp;the&nbsp;template&nbsp;inline.</div></li>
+<li><div class="src-line"><a name="a13"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a14"></a>To&nbsp;do&nbsp;this,&nbsp;simply&nbsp;use&nbsp;the&nbsp;following&nbsp;syntax:&nbsp;{{{red}FG_COLOR{reset}|{default|red}BG_COLOR{reset}|{default|default|bold}STYLE{reset}}}</div></li>
+<li><div class="src-line"><a name="a15"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a16"></a>To&nbsp;display&nbsp;the&nbsp;curly&nbsp;brackets&nbsp;instead&nbsp;of&nbsp;attempting&nbsp;to&nbsp;use&nbsp;the&nbsp;tag,&nbsp;simply&nbsp;do&nbsp;two&nbsp;of&nbsp;them&nbsp;in&nbsp;a&nbsp;row&nbsp;{{</div></li>
+<li><div class="src-line"><a name="a17"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a18"></a>It&nbsp;is&nbsp;important&nbsp;to&nbsp;note&nbsp;that&nbsp;color&nbsp;changes&nbsp;are&nbsp;persistant.</div></li>
+<li><div class="src-line"><a name="a19"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a20"></a>So&nbsp;if&nbsp;I&nbsp;change&nbsp;the&nbsp;{|red}background&nbsp;to&nbsp;red&nbsp;then&nbsp;change&nbsp;the&nbsp;{cyan}foreground&nbsp;to&nbsp;cyan,&nbsp;you'll&nbsp;notice&nbsp;that&nbsp;the&nbsp;background&nbsp;is&nbsp;still&nbsp;red{reset}</div></li>
+<li><div class="src-line"><a name="a21"></a>To&nbsp;reset&nbsp;the&nbsp;colors&nbsp;in&nbsp;a&nbsp;template,&nbsp;simply&nbsp;put&nbsp;a&nbsp;reset&nbsp;tag&nbsp;where&nbsp;you&nbsp;would&nbsp;like&nbsp;to&nbsp;change&nbsp;everything&nbsp;back&nbsp;to&nbsp;default.</div></li>
+<li><div class="src-line"><a name="a22"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a23"></a>You&nbsp;can&nbsp;leave&nbsp;options&nbsp;you&nbsp;don't&nbsp;wish&nbsp;to&nbsp;change&nbsp;blank.&nbsp;&nbsp;Please&nbsp;see&nbsp;the&nbsp;examples&nbsp;below:</div></li>
+<li><div class="src-line"><a name="a24"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a25"></a>{blue}Just&nbsp;the&nbsp;foreground&nbsp;to&nbsp;blue{reset}</div></li>
+<li><div class="src-line"><a name="a26"></a>{|blue}Just&nbsp;the&nbsp;background&nbsp;to&nbsp;blue{reset}</div></li>
+<li><div class="src-line"><a name="a27"></a>{||bold}Just&nbsp;the&nbsp;style&nbsp;to&nbsp;bold{reset}</div></li>
+<li><div class="src-line"><a name="a28"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a29"></a>You&nbsp;can&nbsp;also&nbsp;use&nbsp;{9787AF}Xterm{reset}&nbsp;colors&nbsp;in&nbsp;the&nbsp;same&nbsp;fashion</div></li>
+<li><div class="src-line"><a name="a30"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a31"></a>OUTPUT<span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a32"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a33"></a><span class="src-var">$cli</span><span class="src-sym">-&gt;</span><span class="src-id">WriteTemplate</span><span class="src-sym">(</span><span class="src-var">$output</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a34"></a><span class="src-php">?&gt;</span></div></li>
+</ol></div>
+</div>
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 11 Jan 2012 15:22:51 -0600 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</body>
+</html>
