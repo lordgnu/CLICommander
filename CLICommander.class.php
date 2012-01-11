@@ -213,7 +213,6 @@ class CLICommander {
 	
 	public function GetChar() {
 		if ($this->usingWindows || !$this->bashSupport) return fgetc($this->inputSocket);
-		
 		return trim( `bash -c "read -n 1 -t 10 ANS ; echo \\\$ANS"` );
 	}
 	
@@ -322,9 +321,9 @@ class CLICommander {
 		}
 		
 		// Breakout the RGB colors
-		$r = hexdec(substr($rgb,0,2));
-		$g = hexdec(substr($rgb,2,2));
-		$b = hexdec(substr($rgb,4,2));
+		$r = hexdec(substr($rgbString,0,2));
+		$g = hexdec(substr($rgbString,2,2));
+		$b = hexdec(substr($rgbString,4,2));
 		
 		// Check for Greyscale color
 		if ($r == $g && $g == $b) {
@@ -407,12 +406,14 @@ class CLICommander {
 			$formats['foreground'] = $this->foregroundColors[$fgColor];
 		} else {
 			if ($this->xtermSupport === true) {
-				// This is an xterm color
+				// Try this as an xterm color
+				$fgColor = strtoupper($fgColor);
+				
 				if (array_key_exists($fgColor, $this->xtermColors)) {
 					// Good xterm color
 					$xFormats['foreground'] = sprintf($this->escape, '38;5;'.$this->xtermColors[$fgColor]);
 				} else {
-					if (is_string($fgColor) && (strlen($fgColor == 6) || strlen($fgColor) == 7)) {
+					if (strlen($fgColor) == 6 || strlen($fgColor) == 7) {
 						// Convert RGB string to the closest xterm capable color
 						$xFormats['foreground'] = sprintf($this->escape, '38;5;'.$this->ClosestXtermColor($fgColor, true));
 					} elseif (is_int($fgColor) && $fgColor >= 0 && $fgColor <= 255) {
@@ -420,12 +421,12 @@ class CLICommander {
 						$xFormats['foreground'] = sprintf($this->escape, '38;5;'.$fgColor);
 					} else {
 						// No valid xterm color found
-						$formats['foreground'] = $this->foregroundColors['default'];
+						unset($formats['foreground']);
 					}
 				}
 			} else {
 				// No valid ANSI or xterm color found
-				$formats['foreground'] = $this->foregroundColors['default'];
+				unset($formats['foreground']);
 			}
 		}
 		
@@ -434,7 +435,9 @@ class CLICommander {
 			$formats['background'] = $this->backgroundColors[$bgColor];
 		} else {
 			if ($this->xtermSupport === true) {
-				// This is an xterm color
+				// Try this as an xterm color
+				$bgColor = strtoupper($bgColor);
+				
 				if (array_key_exists($bgColor, $this->xtermColors)) {
 					// Good xterm color
 					$xFormats['background'] = sprintf($this->escape, '38;5;'.$this->xtermColors[$bgColor]);
@@ -448,11 +451,13 @@ class CLICommander {
 					} else {
 						// No valid xterm color found
 						$formats['background'] = $this->backgroundColors['default'];
+						unset($formats['background']);
 					}
 				}
 			} else {
 				// No valid ANSI or xterm color found
 				$formats['background'] = $this->backgroundColors['default'];
+				unset($formats['background']);
 			}
 		}
 		
@@ -460,27 +465,26 @@ class CLICommander {
 		if (array_key_exists($style, $this->styles) && $style != 'default') $formats['style'] = $this->styles[$style]; else unset($formats['style']);
 		
 		// Build the format string
-		$formatString = sprintf($this->escape, implode(';',$formats)) . $xFormats['foreground'] . $xFormats['background'];
+		$formatString = ((count($formats)) ? sprintf($this->escape, implode(';',$formats)) : '') . $xFormats['foreground'] . $xFormats['background'];
 		
 		return $formatString;
 	}
 	
 	private function ParseFormat($matches) {
-		print_r($matches);
 		$format = explode('|',strtolower($matches['format']));
-		$fg = (isset($format[0])) ? $format[0] : null;
+		$fg = (isset($format[0]) && !empty($format[0])) ? $format[0] : null;
 		
 		// Check for reset
-		if ($fg == 'reset') return sprintf($this->escape, 0);
+		if ($fg == 'reset') return $this->Reset(true);
 		
-		$bg = (isset($format[1])) ? $format[1] : null;
-		$style = (isset($format[2])) ? $format[2] : null;
+		$bg = (isset($format[1]) && !empty($format[1])) ? $format[1] : null;
+		$style = (isset($format[2]) && !empty($format[2])) ? $format[2] : null;
 		
 		return $this->GetFormatString($fg, $bg, $style);
 	}
 	
 	private function ParseTemplate($data) {
-		return preg_replace_callback('|\{(?P<format>[^\}]+)\}|', array($this, 'ParseFormat'), $data) . $this->nl;
+		return str_replace(array('\\{','\\}'),array('{','}'),preg_replace_callback('/\{(?P<format>[^\}\{]+)\}/', array($this, 'ParseFormat'), $data)) . $this->nl;
 	}
 	
 	private function ProcessArguments() {
