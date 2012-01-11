@@ -23,10 +23,12 @@
 	<a class="index-letter" href="elementindex_CLICommander.html#h">h</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#i">i</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#m">m</a>
+	<a class="index-letter" href="elementindex_CLICommander.html#n">n</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#o">o</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#p">p</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#r">r</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#s">s</a>
+	<a class="index-letter" href="elementindex_CLICommander.html#u">u</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#v">v</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#w">w</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#x">x</a>
@@ -56,6 +58,41 @@
 	</div>
 	<dl>
 			<dt class="field">
+						<span class="var-title">$argc</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$argc">CLICommander::$argc</a> in CLICommander.class.php</div>
+							<div class="index-item-description">The number of arguments passed to the running script</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$argumentsPassed</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$argumentsPassed">CLICommander::$argumentsPassed</a> in CLICommander.class.php</div>
+							<div class="index-item-description">List of argument that were passed.  Stores short options (-v) and long</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$argumentValues</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$argumentValues">CLICommander::$argumentValues</a> in CLICommander.class.php</div>
+							<div class="index-item-description">List of values associated to arguments passed to the running script</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$argv</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$argv">CLICommander::$argv</a> in CLICommander.class.php</div>
+							<div class="index-item-description">Raw list of arguments passed at the time the script was invoked</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$autoReset</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$autoReset">CLICommander::$autoReset</a> in CLICommander.class.php</div>
+							<div class="index-item-description">Flag for whether or not to auto reset the terminal to default after output is written</div>
+					</dd>
+			<dt class="field">
 						<span class="method-title">ArgumentPassed</span>
 					</dt>
 		<dd class="index-item-body">
@@ -78,6 +115,20 @@
 							<div class="index-item-description">List and values of ANSI background colors</div>
 					</dd>
 			<dt class="field">
+						<span class="var-title">$bashSupport</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$bashSupport">CLICommander::$bashSupport</a> in CLICommander.class.php</div>
+							<div class="index-item-description">Flag for whether or not bash was detected as installed</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$bell</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$bell">CLICommander::$bell</a> in CLICommander.class.php</div>
+							<div class="index-item-description">ANSI escape sequence to ding the terminal bell</div>
+					</dd>
+			<dt class="field">
 						<span class="method-title">Bell</span>
 					</dt>
 		<dd class="index-item-body">
@@ -92,6 +143,13 @@
 		<div style="clear: both"></div>
 	</div>
 	<dl>
+			<dt class="field">
+						<span class="var-title">$cls</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$cls">CLICommander::$cls</a> in CLICommander.class.php</div>
+							<div class="index-item-description">ANSI escape sequence to clear the terminal</div>
+					</dd>
 			<dt class="field">
 						<span class="method-title">Clear</span>
 					</dt>
@@ -119,6 +177,27 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="CLICommander/_CLICommander.class.php.html">CLICommander.class.php</a> in CLICommander.class.php</div>
 					</dd>
+			<dt class="field">
+						<span class="method-title">ClosestXtermColor</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#methodClosestXtermColor">CLICommander::ClosestXtermColor()</a> in CLICommander.class.php</div>
+							<div class="index-item-description">Convert an RGB hex color to the closest xterm equivilent</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">ClosestXtermGrey</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#methodClosestXtermGrey">CLICommander::ClosestXtermGrey()</a> in CLICommander.class.php</div>
+							<div class="index-item-description">Convert a hex octet to the closest grey octet used for xterm colors</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">ClosestXtermOctet</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#methodClosestXtermOctet">CLICommander::ClosestXtermOctet()</a> in CLICommander.class.php</div>
+							<div class="index-item-description">Get the closest xterm color octet for the octet supplied</div>
+					</dd>
 		</dl>
 	<a name="d"></a>
 	<div class="index-letter-section">
@@ -127,6 +206,13 @@
 		<div style="clear: both"></div>
 	</div>
 	<dl>
+			<dt class="field">
+						<span class="var-title">$defaults</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$defaults">CLICommander::$defaults</a> in CLICommander.class.php</div>
+							<div class="index-item-description">Default formats for output</div>
+					</dd>
 			<dt class="field">
 						<span class="method-title">DisableAutoReset</span>
 					</dt>
@@ -148,6 +234,20 @@
 		<dd class="index-item-body">
 			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$errorSocket">CLICommander::$errorSocket</a> in CLICommander.class.php</div>
 							<div class="index-item-description">The socket in which to write errors</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$errorStream</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$errorStream">CLICommander::$errorStream</a> in CLICommander.class.php</div>
+							<div class="index-item-description">The stream to open a socket for writing errors</div>
+					</dd>
+			<dt class="field">
+						<span class="var-title">$escape</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$escape">CLICommander::$escape</a> in CLICommander.class.php</div>
+							<div class="index-item-description">ANSI escape sequence for output coded for sprinf</div>
 					</dd>
 			<dt class="field">
 						<span class="method-title">EnableAutoReset</span>
@@ -201,6 +301,13 @@
 							<div class="index-item-description">Get a single character from input.</div>
 					</dd>
 			<dt class="field">
+						<span class="method-title">GetFormatString</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#methodGetFormatString">CLICommander::GetFormatString()</a> in CLICommander.class.php</div>
+							<div class="index-item-description">Generate the ANSI/XTERM format string for the format information passed</div>
+					</dd>
+			<dt class="field">
 						<span class="method-title">GetLine</span>
 					</dt>
 		<dd class="index-item-body">
@@ -237,6 +344,13 @@
 			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$inputSocket">CLICommander::$inputSocket</a> in CLICommander.class.php</div>
 							<div class="index-item-description">The socket from which to read input</div>
 					</dd>
+			<dt class="field">
+						<span class="var-title">$inputStream</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$inputStream">CLICommander::$inputStream</a> in CLICommander.class.php</div>
+							<div class="index-item-description">The stream to open a socket for reading input</div>
+					</dd>
 		</dl>
 	<a name="m"></a>
 	<div class="index-letter-section">
@@ -260,6 +374,21 @@
 							<div class="index-item-description">Writes some text (i.e. a question) and waits for user input.</div>
 					</dd>
 		</dl>
+	<a name="n"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">n</div>
+		<div style="float: right"><a href="#top">top</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<dl>
+			<dt class="field">
+						<span class="var-title">$nl</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$nl">CLICommander::$nl</a> in CLICommander.class.php</div>
+							<div class="index-item-description">The newline character to use on the current system</div>
+					</dd>
+		</dl>
 	<a name="o"></a>
 	<div class="index-letter-section">
 		<div style="float: left" class="index-letter-title">o</div>
@@ -274,6 +403,13 @@
 			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$outputSocket">CLICommander::$outputSocket</a> in CLICommander.class.php</div>
 							<div class="index-item-description">The socket in which to write output</div>
 					</dd>
+			<dt class="field">
+						<span class="var-title">$outputStream</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$outputStream">CLICommander::$outputStream</a> in CLICommander.class.php</div>
+							<div class="index-item-description">The stream to open a socket for writing output</div>
+					</dd>
 		</dl>
 	<a name="p"></a>
 	<div class="index-letter-section">
@@ -282,6 +418,27 @@
 		<div style="clear: both"></div>
 	</div>
 	<dl>
+			<dt class="field">
+						<span class="method-title">ParseFormat</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#methodParseFormat">CLICommander::ParseFormat()</a> in CLICommander.class.php</div>
+							<div class="index-item-description">Parse format code from template text and return format strings</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">ParseTemplate</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#methodParseTemplate">CLICommander::ParseTemplate()</a> in CLICommander.class.php</div>
+							<div class="index-item-description">Parse and return template text</div>
+					</dd>
+			<dt class="field">
+						<span class="method-title">ProcessArguments</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#methodProcessArguments">CLICommander::ProcessArguments()</a> in CLICommander.class.php</div>
+							<div class="index-item-description">Process and track arguments that were passed to the script.</div>
+					</dd>
 			<dt class="field">
 						<span class="method-title">Prompt</span>
 					</dt>
@@ -354,6 +511,28 @@
 			<div class="index-item-details"><a href="CLICommander/CLICommander.html#methodSetXY">CLICommander::SetXY()</a> in CLICommander.class.php</div>
 							<div class="index-item-description">Change the cursor position to a new x,y coordinate</div>
 					</dd>
+			<dt class="field">
+						<span class="method-title">SystemWrite</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#methodSystemWrite">CLICommander::SystemWrite()</a> in CLICommander.class.php</div>
+							<div class="index-item-description">Write to an output socket with no formatting</div>
+					</dd>
+		</dl>
+	<a name="u"></a>
+	<div class="index-letter-section">
+		<div style="float: left" class="index-letter-title">u</div>
+		<div style="float: right"><a href="#top">top</a></div>
+		<div style="clear: both"></div>
+	</div>
+	<dl>
+			<dt class="field">
+						<span class="var-title">$usingWindows</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$usingWindows">CLICommander::$usingWindows</a> in CLICommander.class.php</div>
+							<div class="index-item-description">Flag for whether or not the script is running on a Windows based machine</div>
+					</dd>
 		</dl>
 	<a name="v"></a>
 	<div class="index-letter-section">
@@ -420,6 +599,13 @@
 			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$xtermColors">CLICommander::$xtermColors</a> in CLICommander.class.php</div>
 							<div class="index-item-description">List and values of xterm colors</div>
 					</dd>
+			<dt class="field">
+						<span class="var-title">$xtermSupport</span>
+					</dt>
+		<dd class="index-item-body">
+			<div class="index-item-details"><a href="CLICommander/CLICommander.html#var$xtermSupport">CLICommander::$xtermSupport</a> in CLICommander.class.php</div>
+							<div class="index-item-description">Flag for whether the terminal has support for xterm colors</div>
+					</dd>
 		</dl>
 
 <div class="index-letter-menu">
@@ -433,10 +619,12 @@
 	<a class="index-letter" href="elementindex_CLICommander.html#h">h</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#i">i</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#m">m</a>
+	<a class="index-letter" href="elementindex_CLICommander.html#n">n</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#o">o</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#p">p</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#r">r</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#s">s</a>
+	<a class="index-letter" href="elementindex_CLICommander.html#u">u</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#v">v</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#w">w</a>
 	<a class="index-letter" href="elementindex_CLICommander.html#x">x</a>

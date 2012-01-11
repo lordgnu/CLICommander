@@ -54,17 +54,61 @@
 								</div>
 		<div class="info-box-body">
 			<div class="var-summary">
-																																																												<div class="var-title">
+																																																																																																																																																																																				<div class="var-title">
 					static <span class="var-type">string</span>
 					<a href="#$version" title="details" class="var-name">$version</a>
 				</div>
-																												<div class="var-title">
+																																				<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$argc" title="details" class="var-name">$argc</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$argumentsPassed" title="details" class="var-name">$argumentsPassed</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$argumentValues" title="details" class="var-name">$argumentValues</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$argv" title="details" class="var-name">$argv</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">boolean</span>
+					<a href="#$autoReset" title="details" class="var-name">$autoReset</a>
+				</div>
+																<div class="var-title">
 					<span class="var-type">array</span>
 					<a href="#$backgroundColors" title="details" class="var-name">$backgroundColors</a>
 				</div>
 																<div class="var-title">
+					<span class="var-type">boolean</span>
+					<a href="#$bashSupport" title="details" class="var-name">$bashSupport</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$bell" title="details" class="var-name">$bell</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$cls" title="details" class="var-name">$cls</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$defaults" title="details" class="var-name">$defaults</a>
+				</div>
+																<div class="var-title">
 					<span class="var-type">resource</span>
 					<a href="#$errorSocket" title="details" class="var-name">$errorSocket</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$errorStream" title="details" class="var-name">$errorStream</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$escape" title="details" class="var-name">$escape</a>
 				</div>
 																<div class="var-title">
 					<span class="var-type">array</span>
@@ -75,16 +119,36 @@
 					<a href="#$inputSocket" title="details" class="var-name">$inputSocket</a>
 				</div>
 																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$inputStream" title="details" class="var-name">$inputStream</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$nl" title="details" class="var-name">$nl</a>
+				</div>
+																<div class="var-title">
 					<span class="var-type">resource</span>
 					<a href="#$outputSocket" title="details" class="var-name">$outputSocket</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$outputStream" title="details" class="var-name">$outputStream</a>
 				</div>
 																<div class="var-title">
 					<span class="var-type">array</span>
 					<a href="#$styles" title="details" class="var-name">$styles</a>
 				</div>
+																<div class="var-title">
+					<span class="var-type">boolean</span>
+					<a href="#$usingWindows" title="details" class="var-name">$usingWindows</a>
+				</div>
 																								<div class="var-title">
 					<span class="var-type">array</span>
 					<a href="#$xtermColors" title="details" class="var-name">$xtermColors</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">boolean</span>
+					<a href="#$xtermSupport" title="details" class="var-name">$xtermSupport</a>
 				</div>
 											</div>
 		</div>
@@ -102,7 +166,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																																																																																																																																																						
+																																																																																																																																																																																																																																																																																						
 				<div class="method-definition">
 											<span class="method-result">CLICommander</span>
 										<a href="#CLICommander" title="details" class="method-name">CLICommander</a>
@@ -131,6 +195,24 @@
 											<span class="method-result">void</span>
 										<a href="#Clear" title="details" class="method-name">Clear</a>
 										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#ClosestXtermColor" title="details" class="method-name">ClosestXtermColor</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$rgbString</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$foreground</span> = <span class="var-default">true</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#ClosestXtermGrey" title="details" class="method-name">ClosestXtermGrey</a>
+											([<span class="var-type">integer</span>&nbsp;<span class="var-name">$g</span> = <span class="var-default">0</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#ClosestXtermOctet" title="details" class="method-name">ClosestXtermOctet</a>
+											([<span class="var-type">integer</span>&nbsp;<span class="var-name">$c</span> = <span class="var-default">0</span>])
 									</div>
 														
 				<div class="method-definition">
@@ -165,6 +247,12 @@
 														
 				<div class="method-definition">
 											<span class="method-result">string</span>
+										<a href="#GetFormatString" title="details" class="method-name">GetFormatString</a>
+											(<span class="var-type">string|integer</span>&nbsp;<span class="var-name">$fgColor</span>, <span class="var-type">string|integer</span>&nbsp;<span class="var-name">$bgColor</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$style</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
 										<a href="#GetLine" title="details" class="method-name">GetLine</a>
 										()
 									</div>
@@ -185,6 +273,24 @@
 											<span class="method-result">string</span>
 										<a href="#MaskedPrompt" title="details" class="method-name">MaskedPrompt</a>
 											(<span class="var-type">string</span>&nbsp;<span class="var-name">$text</span>, [<span class="var-type">string|integer</span>&nbsp;<span class="var-name">$fgColor</span> = <span class="var-default">null</span>], [<span class="var-type">string|integer</span>&nbsp;<span class="var-name">$bgColor</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$style</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#ParseFormat" title="details" class="method-name">ParseFormat</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$matches</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#ParseTemplate" title="details" class="method-name">ParseTemplate</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#ProcessArguments" title="details" class="method-name">ProcessArguments</a>
+										()
 									</div>
 														
 				<div class="method-definition">
@@ -227,6 +333,12 @@
 											<span class="method-result">void</span>
 										<a href="#SetXY" title="details" class="method-name">SetXY</a>
 											([<span class="var-type">integer</span>&nbsp;<span class="var-name">$x</span> = <span class="var-default">1</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$y</span> = <span class="var-default">1</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#SystemWrite" title="details" class="method-name">SystemWrite</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$text</span> = <span class="var-default">''</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$useErrorSocket</span> = <span class="var-default">false</span>])
 									</div>
 														
 				<div class="method-definition">
@@ -292,8 +404,119 @@
 
 </div>
 
-<a name="var$backgroundColors" id="$backgroundColors"><!-- --></A>
+<a name="var$argc" id="$argc"><!-- --></A>
 <div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$argc</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a57">57</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The number of arguments passed to the running script</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$argumentsPassed" id="$argumentsPassed"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$argumentsPassed</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a64">64</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">List of argument that were passed.  Stores short options (-v) and long</p>
+<p class="description"><p>options (--verbose)</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$argumentValues" id="$argumentValues"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$argumentValues</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a70">70</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">List of values associated to arguments passed to the running script</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$argv" id="$argv"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$argv</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a51">51</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Raw list of arguments passed at the time the script was invoked</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$autoReset" id="$autoReset"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$autoReset</span>
+			 = <span class="var-default">	true</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a94">94</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Flag for whether or not to auto reset the terminal to default after output is written</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$backgroundColors" id="$backgroundColors"><!-- --></A>
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -314,8 +537,96 @@
 		
 
 </div>
-<a name="var$errorSocket" id="$errorSocket"><!-- --></A>
+<a name="var$bashSupport" id="$bashSupport"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$bashSupport</span>
+			 = <span class="var-default">	false</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a88">88</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Flag for whether or not bash was detected as installed</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$bell" id="$bell"><!-- --></A>
 <div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$bell</span>
+			 = <span class="var-default">	&quot;\007&quot;</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a112">112</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">ANSI escape sequence to ding the terminal bell</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$cls" id="$cls"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$cls</span>
+			 = <span class="var-default">	&quot;\033[2J&quot;</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a118">118</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">ANSI escape sequence to clear the terminal</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$defaults" id="$defaults"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$defaults</span>
+			 = <span class="var-default">array(<br />		'foreground'	=&gt;	'default',<br />		'background'	=&gt;	'default',<br />		'style'			=&gt;	'default'<br />	)</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a124">124</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Default formats for output</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$errorSocket" id="$errorSocket"><!-- --></A>
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -336,8 +647,52 @@
 		
 
 </div>
-<a name="var$foregroundColors" id="$foregroundColors"><!-- --></A>
+<a name="var$errorStream" id="$errorStream"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$errorStream</span>
+			 = <span class="var-default">	'php://stderr'</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a146">146</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The stream to open a socket for writing errors</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$escape" id="$escape"><!-- --></A>
 <div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$escape</span>
+			 = <span class="var-default">	&quot;\033[%sm&quot;</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a106">106</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">ANSI escape sequence for output coded for sprinf</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$foregroundColors" id="$foregroundColors"><!-- --></A>
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -359,7 +714,7 @@
 
 </div>
 <a name="var$inputSocket" id="$inputSocket"><!-- --></A>
-<div class="evenrow">
+<div class="oddrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -380,8 +735,52 @@
 		
 
 </div>
-<a name="var$outputSocket" id="$outputSocket"><!-- --></A>
+<a name="var$inputStream" id="$inputStream"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$inputStream</span>
+			 = <span class="var-default">	'php://stdin'</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a134">134</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The stream to open a socket for reading input</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$nl" id="$nl"><!-- --></A>
 <div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$nl</span>
+			 = <span class="var-default">	PHP_EOL</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a100">100</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The newline character to use on the current system</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$outputSocket" id="$outputSocket"><!-- --></A>
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -395,6 +794,28 @@
 <p class="short-description">The socket in which to write output</p>
 	<ul class="tags">
 				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$outputStream" id="$outputStream"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$outputStream</span>
+			 = <span class="var-default">	'php://stdout'</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a140">140</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The stream to open a socket for writing output</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
 			</ul>
 	
 	
@@ -424,8 +845,30 @@
 		
 
 </div>
-<a name="var$xtermColors" id="$xtermColors"><!-- --></A>
+<a name="var$usingWindows" id="$usingWindows"><!-- --></A>
 <div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$usingWindows</span>
+			 = <span class="var-default">	false</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a76">76</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Flag for whether or not the script is running on a Windows based machine</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$xtermColors" id="$xtermColors"><!-- --></A>
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -439,6 +882,28 @@
 <p class="short-description">List and values of xterm colors</p>
 	<ul class="tags">
 				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$xtermSupport" id="$xtermSupport"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$xtermSupport</span>
+			 = <span class="var-default">	false</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a82">82</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Flag for whether the terminal has support for xterm colors</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
 			</ul>
 	
 	
@@ -588,8 +1053,98 @@
 		
 			
 	</div>
-<a name="methodDisableAutoReset" id="DisableAutoReset"><!-- --></a>
+<a name="methodClosestXtermColor" id="ClosestXtermColor"><!-- --></a>
 <div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">ClosestXtermColor</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a650">650</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Convert an RGB hex color to the closest xterm equivilent</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			ClosestXtermColor
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$rgbString</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$foreground</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$rgbString</span><span class="var-description">: The hex string to convert</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$foreground</span><span class="var-description">: Whether this is for a foreground or background color</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodClosestXtermGrey" id="ClosestXtermGrey"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">ClosestXtermGrey</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a684">684</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Convert a hex octet to the closest grey octet used for xterm colors</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			ClosestXtermGrey
+		</span>
+					([<span class="var-type">integer</span>&nbsp;<span class="var-name">$g</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$g</span><span class="var-description">: The integer value of the hex to be converted</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodClosestXtermOctet" id="ClosestXtermOctet"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">ClosestXtermOctet</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a727">727</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the closest xterm color octet for the octet supplied</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			ClosestXtermOctet
+		</span>
+					([<span class="var-type">integer</span>&nbsp;<span class="var-name">$c</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$c</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodDisableAutoReset" id="DisableAutoReset"><!-- --></a>
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">DisableAutoReset</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a350">350</a></span>)
@@ -614,7 +1169,7 @@
 			
 	</div>
 <a name="methodEnableAutoReset" id="EnableAutoReset"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">EnableAutoReset</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a357">357</a></span>)
@@ -638,7 +1193,7 @@
 			
 	</div>
 <a name="methodGetArguments" id="GetArguments"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">GetArguments</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a385">385</a></span>)
@@ -675,7 +1230,7 @@
 			
 	</div>
 <a name="methodGetArgumentValue" id="GetArgumentValue"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">GetArgumentValue</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a404">404</a></span>)
@@ -705,7 +1260,7 @@
 			
 	</div>
 <a name="methodGetChar" id="GetChar"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">GetChar</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a427">427</a></span>)
@@ -726,6 +1281,41 @@
 				()
 			</div>
 	
+		
+			
+	</div>
+<a name="methodGetFormatString" id="GetFormatString"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">GetFormatString</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a752">752</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generate the ANSI/XTERM format string for the format information passed</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			GetFormatString
+		</span>
+					(<span class="var-type">string|integer</span>&nbsp;<span class="var-name">$fgColor</span>, <span class="var-type">string|integer</span>&nbsp;<span class="var-name">$bgColor</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$style</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|integer</span>
+				<span class="var-name">$fgColor</span><span class="var-description">: The foreground color to use for the format string</span>			</li>
+					<li>
+				<span class="var-type">string|integer</span>
+				<span class="var-name">$bgColor</span><span class="var-description">: The background color to use for the format string</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$style</span><span class="var-description">: The style to use for the format string</span>			</li>
+				</ul>
 		
 			
 	</div>
@@ -841,8 +1431,90 @@
 		
 			
 	</div>
-<a name="methodPrompt" id="Prompt"><!-- --></a>
+<a name="methodParseFormat" id="ParseFormat"><!-- --></a>
 <div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">ParseFormat</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a840">840</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parse format code from template text and return format strings</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			ParseFormat
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$matches</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$matches</span><span class="var-description">: List of matched text from ParseTemplate</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodParseTemplate" id="ParseTemplate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">ParseTemplate</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a860">860</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parse and return template text</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			ParseTemplate
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$data</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$data</span><span class="var-description">: The text to parse</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodProcessArguments" id="ProcessArguments"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">ProcessArguments</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a867">867</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Process and track arguments that were passed to the script.</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			ProcessArguments
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodPrompt" id="Prompt"><!-- --></a>
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">Prompt</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a493">493</a></span>)
@@ -881,7 +1553,7 @@
 			
 	</div>
 <a name="methodReset" id="Reset"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">Reset</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a508">508</a></span>)
@@ -911,7 +1583,7 @@
 			
 	</div>
 <a name="methodSetDefaultBackgroundColor" id="SetDefaultBackgroundColor"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">SetDefaultBackgroundColor</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a532">532</a></span>)
@@ -940,7 +1612,7 @@
 			
 	</div>
 <a name="methodSetDefaultForegroundColor" id="SetDefaultForegroundColor"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">SetDefaultForegroundColor</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a523">523</a></span>)
@@ -969,7 +1641,7 @@
 			
 	</div>
 <a name="methodSetDefaultStyle" id="SetDefaultStyle"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">SetDefaultStyle</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a541">541</a></span>)
@@ -998,7 +1670,7 @@
 			
 	</div>
 <a name="methodSetTerminalTitle" id="SetTerminalTitle"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">SetTerminalTitle</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a550">550</a></span>)
@@ -1027,7 +1699,7 @@
 			
 	</div>
 <a name="methodSetXY" id="SetXY"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">SetXY</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a560">560</a></span>)
@@ -1054,6 +1726,38 @@
 					<li>
 				<span class="var-type">integer</span>
 				<span class="var-name">$y</span><span class="var-description">: The y coordinate to set the cursor to</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodSystemWrite" id="SystemWrite"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">SystemWrite</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a904">904</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Write to an output socket with no formatting</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			SystemWrite
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$text</span> = <span class="var-default">''</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$useErrorSocket</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$text</span><span class="var-description">: The text to write to the socket</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$useErrorSocket</span><span class="var-description">: Whether to use the error socket or the output socket</span>			</li>
 				</ul>
 		
 			
@@ -1201,7 +1905,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Wed, 11 Jan 2012 15:35:59 -0600 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Wed, 11 Jan 2012 16:04:33 -0600 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>
