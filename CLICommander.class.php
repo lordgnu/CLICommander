@@ -38,6 +38,7 @@
  */
 
 class CLICommander {
+	public static $version	=	'1.0';
 	protected $inputSocket;
 	protected $outputSocket;
 	protected $errorSocket;
