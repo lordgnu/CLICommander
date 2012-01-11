@@ -1,6 +1,6 @@
 <?php
 
-require_once 'CLICommander.class.php';
+require_once '../CLICommander.class.php';
 
 $cli = new CLICommander();
 
