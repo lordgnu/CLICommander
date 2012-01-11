@@ -155,6 +155,9 @@ class CLICommander {
 	private $argv;
 	private $argc;
 	
+	private $argumentsPassed	=	array();
+	private $argumentValues		=	array();
+	
 	public function CLICommander($outputStream = 'php://stdout', $inputStream = 'php://stdin', $errorStream = 'php://stderr') {
 		// Check to see if we are using windows
 		if (substr(php_uname('s'),0,7) == 'Windows') $this->usingWindows = true;
@@ -191,6 +194,11 @@ class CLICommander {
 		@fclose($this->errorSocket);
 	}
 	
+	public function ArgumentPassed($argument) {
+		if (isset($this->argumentsPassed[$argument])) return $this->argumentsPassed[$argument];
+		return false;
+	}
+	
 	public function Bell() {
 		$this->SystemWrite($this->bell);
 	}
@@ -208,13 +216,25 @@ class CLICommander {
 		$this->autoReset = true;
 	}
 	
-	public function GetLine() {
-		return preg_replace("(\r\n|\n|\r)", '',fgets($this->inputSocket));
+	public function GetArgumentValue($argument) {
+		if ($this->ArgumentPassed($argument)) {
+			if (isset($this->argumentValues[$argument])) {
+				return $this->argumentValues[$argument];
+			} else {
+				return true;
+			}
+		} 
+		
+		return false;
 	}
 	
 	public function GetChar() {
 		if ($this->usingWindows || !$this->bashSupport) return fgetc($this->inputSocket);
 		return trim( `bash -c "read -n 1 -t 10 ANS ; echo \\\$ANS"` );
+	}
+	
+	public function GetLine() {
+		return preg_replace("(\r\n|\n|\r)", '',fgets($this->inputSocket));
 	}
 	
 	public function HasXtermSupport() {
@@ -489,7 +509,34 @@ class CLICommander {
 	}
 	
 	private function ProcessArguments() {
-		
+		if ($this->argc > 1) {
+			unset($this->argv[0]);
+			foreach ($this->argv as $index => $arg) {
+				if (substr($arg, 0, 2) == '--') {
+					$this->argumentsPassed[substr($arg,2)] = true;
+					
+					// Check if we have a value for this arg
+					if (isset($this->argv[($index+1)])) {
+						if (substr($this->argv[($index+1)], 0, 1) != '-') {
+							$this->argumentValues[substr($arg,2)] = $this->argv[($index+1)]; 
+						}
+					}
+					
+				} elseif (substr($arg, 0, 1) == '-') {
+					// This is a short flag and could be more than 1
+					$arg = substr($arg,1);
+					if (strlen($arg) == 1) {
+						$this->argumentsPassed[$arg] = true;
+					} else {
+						for ($a = 0; $a < strlen($arg); $a++) {
+							$this->argumentsPassed[substr($arg, $a, 1)] = true;
+						}
+					}
+				} else {
+					// Dunno yet
+				}
+			}
+		}
 	}
 	
 	private function SystemWrite($text = '', $useErrorSocket = false) {
