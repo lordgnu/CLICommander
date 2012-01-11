@@ -38,30 +38,136 @@
  */
 
 class CLICommander {
+	/**
+	 * The version of CLICommander
+	 * @var string
+	 */
 	public static $version	=	'1.0';
-	protected $inputSocket;
-	protected $outputSocket;
-	protected $errorSocket;
 	
+	/**
+	 * Raw list of arguments passed at the time the script was invoked
+	 * @var array
+	 */
+	private $argv;
+	
+	/**
+	 * The number of arguments passed to the running script
+	 * @var integer
+	 */
+	private $argc;
+	
+	/**
+	 * List of argument that were passed.  Stores short options (-v) and long
+	 * options (--verbose)
+	 * @var array
+	 */
+	private $argumentsPassed	=	array();
+	
+	/**
+	 * List of values associated to arguments passed to the running script
+	 * @var array
+	 */
+	private $argumentValues		=	array();
+	
+	/**
+	 * Flag for whether or not the script is running on a Windows based machine
+	 * @var boolean
+	 */
 	private	$usingWindows	=	false;
+	
+	/**
+	 * Flag for whether the terminal has support for xterm colors
+	 * @var boolean
+	 */
 	private $xtermSupport	=	false;
+	
+	/**
+	 * Flag for whether or not bash was detected as installed
+	 * @var boolean
+	 */
 	private $bashSupport	=	false;
+	
+	/**
+	 * Flag for whether or not to auto reset the terminal to default after
+	 * output is written
+	 * @var boolean
+	 */
 	private $autoReset		=	true;
 	
+	/**
+	 * The newline character to use on the current system
+	 * @var string
+	 */
 	private $nl	=	PHP_EOL;
 	
+	/**
+	 * ANSI escape sequence for output coded for sprinf
+	 * @var string
+	 */
 	private $escape 			=	"\033[%sm";
+	
+	/**
+	 * ANSI escape sequence to ding the terminal bell
+	 * @var string
+	 */
 	private $bell 				=	"\007";
+	
+	/**
+	 * ANSI escape sequence to clear the terminal
+	 * @var string
+	 */
 	private $cls 				=	"\033[2J";
 	
-	private $getBuffer;
-	
+	/**
+	 * Default formats for output
+	 * @var array
+	 */
 	private $defaults = array(
 		'foreground'	=>	'default',
 		'background'	=>	'default',
 		'style'			=>	'default'
 	);
 	
+	/**
+	 * The stream to open a socket for reading input
+	 * @var string
+	 */
+	private $inputStream	=	'php://stdin';
+	
+	/**
+	 * The stream to open a socket for writing output
+	 * @var string
+	 */
+	private $outputStream	=	'php://stdout';
+	
+	/**
+	 * The stream to open a socket for writing errors
+	 * @var string
+	 */
+	private $errorStream	=	'php://stderr';
+	
+	/**
+	 * The socket from which to read input
+	 * @var resource
+	 */
+	protected $inputSocket;
+	
+	/**
+	 * The socket in which to write output
+	 * @var resource
+	 */
+	protected $outputSocket;
+	
+	/**
+	 * The socket in which to write errors
+	 * @var resource
+	 */
+	protected $errorSocket;
+	
+	/**
+	 * List and values of ANSI foreground colors
+	 * @var array
+	 */
 	protected $foregroundColors = array(
 		'default'	=>	39,
 		'black'		=>	30,
@@ -73,7 +179,11 @@ class CLICommander {
 		'cyan'		=>	36,
 		'white'		=>	37
 	);
-
+	
+	/**
+	 * List and values of ANSI background colors
+	 * @var array
+	 */
 	protected $backgroundColors = array(
 		'default'	=>	49,
 		'black'		=>	40,
@@ -85,7 +195,11 @@ class CLICommander {
 		'cyan'		=>	46,
 		'white'		=>	47
 	);
-
+	
+	/**
+	 * List and values of ANSI styles
+	 * @var array
+	 */
 	protected $styles = array(
 		'default'			=>	0,
 		'bold'				=>	1,
@@ -101,6 +215,10 @@ class CLICommander {
 		'superscript'		=>	49	// Not widely supported
 	);
 	
+	/**
+	 * List and values of xterm colors
+	 * @var array
+	 */
 	protected $xtermColors = array(
 		'000000'=>16,'00005F'=>17,'000087'=>18,'0000AF'=>19,'0000D7'=>20,
 		'0000FF'=>21,'005F00'=>22,'005F5F'=>23,'005F87'=>24,'005FAF'=>25,
@@ -152,20 +270,17 @@ class CLICommander {
 		'C6C6C6'=>251,'D0D0D0'=>252,'DADADA'=>253,'E4E4E4'=>254,'EEEEEE'=>255
 	);
 	
-	private $argv;
-	private $argc;
-	
-	private $argumentsPassed	=	array();
-	private $argumentValues		=	array();
-	
-	public function CLICommander($outputStream = 'php://stdout', $inputStream = 'php://stdin', $errorStream = 'php://stderr') {
+	/**
+	 * CLICommander constructor.  Returns an instanced CLICommander object
+	 */
+	public function CLICommander() {
 		// Check to see if we are using windows
 		if (substr(php_uname('s'),0,7) == 'Windows') $this->usingWindows = true;
 		
 		// Open our sockets
-		$this->outputSocket = @fopen($outputStream, 'w');
-		$this->inputSocket = @fopen($inputStream, 'r');
-		$this->errorSocket = @fopen($errorStream, 'w');
+		$this->outputSocket = @fopen($this->outputStream, 'w');
+		$this->inputSocket = @fopen($this->inputStream, 'r');
+		$this->errorSocket = @fopen($this->errorStream, 'w');
 		
 		if (!$this->usingWindows) {
 			// Check for xterm support
@@ -184,6 +299,9 @@ class CLICommander {
 		$this->ProcessArguments();
 	}
 	
+	/**
+	 * CLICommander destructor.  Reset the terminal and closes open sockets
+	 */
 	public function __destruct() {
 		// Reset the terminal 
 		$this->SystemWrite(sprintf($this->escape,0));
@@ -194,28 +312,71 @@ class CLICommander {
 		@fclose($this->errorSocket);
 	}
 	
+	/**
+	 * Check whether an argument was passed to the PHP script
+	 * @param string $argument The argument to check
+	 * @return boolean
+	 */
 	public function ArgumentPassed($argument) {
 		if (isset($this->argumentsPassed[$argument])) return $this->argumentsPassed[$argument];
 		return false;
 	}
 	
+	/**
+	 * Ding the terminal bell
+	 */
 	public function Bell() {
 		$this->SystemWrite($this->bell);
 	}
 	
+	/**
+	 * Clear the terminal and reset the cursor to 1,1
+	 */
 	public function Clear() {
 		$this->SystemWrite($this->cls);
 		$this->SetXY(1,1);
 	}
 	
+	/**
+	 * Disable automatic resetting the terminal to default after writing 
+	 * output to the terminal
+	 * 
+	 * This causes changes in formatting to persist until a new format is set or
+	 * the reset method is called manually
+	 */
 	public function DisableAutoReset() {
 		$this->autoReset = false;
 	}
 	
+	/**
+	 * Enable automatic resetting of the terminal to default after writing 
+	 * output to the terminal
+	 */
 	public function EnableAutoReset() {
 		$this->autoReset = true;
 	}
 	
+	/**
+	 * Get an array of the arguments passed and their associated values (if there
+	 * are any)
+	 * @return array
+	 */
+	public function GetArguments() {
+		$args = array();
+		foreach ($this->argumentsPassed as $i => $v) {
+			$args[$i] = (isset($this->argumentValues[$i])) ? $this->argumentValues[$i] : $v;
+		}
+		
+		return $args;
+	}
+	
+	/**
+	 * Returns the value of an argument passed to the php script or true of the 
+	 * agument was passed but there was no associated value.  Returns false if
+	 * the argument was not passed
+	 * @param string $argument The argument to get the value of
+	 * @return mixed
+	 */
 	public function GetArgumentValue($argument) {
 		if ($this->ArgumentPassed($argument)) {
 			if (isset($this->argumentValues[$argument])) {
@@ -228,36 +389,81 @@ class CLICommander {
 		return false;
 	}
 	
+	/**
+	 * Get a single character from input.  This method is not very reliable on
+	 * most PHP installations because it is a blocking call.  If bash is found
+	 * on the system, it will use bash to get a single character from the input,
+	 * otherwise this function will wait until the enter key has been pressed 
+	 * and will return the first character the was entered prior to pressing
+	 * enter
+	 * @return string
+	 */
 	public function GetChar() {
 		if ($this->usingWindows || !$this->bashSupport) return fgetc($this->inputSocket);
 		return trim( `bash -c "read -n 1 -t 10 ANS ; echo \\\$ANS"` );
 	}
 	
+	/**
+	 * Returns a line of text entered without the newline chacter
+	 * @return string
+	 */
 	public function GetLine() {
 		return preg_replace("(\r\n|\n|\r)", '',fgets($this->inputSocket));
 	}
 	
+	/**
+	 * Determine whether the current terminal has support for xterm colors
+	 * @return boolean
+	 */
 	public function HasXtermSupport() {
 		return $this->xtermSupport;
 	}
 	
+	/**
+	 * Request input from the user but don't echo the characters as the user
+	 * enters them.  Very useful for things such as passwords.
+	 */
 	public function MaskedGetLine() {
 		$get = preg_replace("(\r\n|\n|\r)", '', `stty -echo; head -n1 ; stty echo`);
 		$this->WriteLine();
 		return $get;
 	}
 	
+	/**
+	 * Writes some text (i.e. a question) and waits for user input.  Returns
+	 * the string entered by the user.  This is a masked prompt, so text is not 
+	 * echoed as the user types characters.  Usefull for passwords.
+	 * @param string $text The text to display
+	 * @param string|integer $fgColor The color to use for the text displayed or a style array to use for all the formatting
+	 * @param string|integer $bgColor The color to use for the background
+	 * @param string $style The style to use for the text displayed
+	 * @return string
+	 */
 	public function MaskedPrompt($text, $fgColor = null, $bgColor = null, $style = null) {
 		$this->Write($text . ' ', $fgColor, $bgColor, $style);
 		return $this->MaskedGetLine();
 	}
 	
+	/**
+	 * Writes some text (i.e. a question) and waits for user input.  Returns
+	 * the string entered by the user.  
+	 * @param string $text The text to display
+	 * @param string|integer|array $fgColor The color to use for the text displayed or a style array to use for all the formatting
+	 * @param string|integer $bgColor The color to use for the background
+	 * @param string $style The style to use for the text displayed
+	 * @return string
+	 */
 	public function Prompt($text, $fgColor = null, $bgColor = null, $style = null) {
 		$this->Write($text . ' ', $fgColor, $bgColor, $style);
 		return $this->GetLine();
 	}
 	
+	/**
+	 * Resets the terminal to the current default format
+	 * @param boolean $return When true, just returns the escape sequence of the reset
+	 */
 	public function Reset($return = false) {
+		if ($this->usingWindows) return;
 		if (!$return) {
 			$this->SystemWrite(sprintf($this->escape,0));
 			$this->SystemWrite($this->GetFormatString($this->defaults['foreground'], $this->defaults['background'], $this->defaults['style']));
@@ -266,28 +472,56 @@ class CLICommander {
 		}
 	}
 	
+	/**
+	 * Changes the default foreground color for the session
+	 * @param string|integer $fgColor The foreground color to set as default
+	 */
 	public function SetDefaultForegroundColor($fgColor) {
 		$this->defaults['foreground'] = $fgColor;
 	}
 	
+	/**
+	 * Changes the default background color for the session
+	 * @param string|integer $bgColor The background color to set as default
+	 */
 	public function SetDefaultBackgroundColor($bgColor) {
 		$this->defaults['background'] = $bgColor;
 	}
 	
+	/**
+	 * Changes the default style for the session
+	 * @param string $style The style to set as default
+	 */
 	public function SetDefaultStyle($style) {
 		$this->defaults['style'] = $style;
 	}
 	
+	/**
+	 * Changes the terminal title for the session
+	 * @param string $title The title to set for this terminal
+	 */
 	public function SetTerminalTitle($title = "CLICommander Terminal") {
 		if (!$this->usingWindows) $this->SystemWrite("\033]2;".$title."\007");
 	}
 	
+	/**
+	 * Change the cursor position to a new x,y coordinate
+	 * @param integer $x The x coordinate to set the cursor to
+	 * @param integer $y The y coordinate to set the cursor to
+	 */
 	public function SetXY($x = 1, $y = 1) {
 		if ($x < 1) $x = 1;
 		if ($y < 1) $y = 1;
 		$this->SystemWrite("\033[{$x};{$y}H");
 	}
 	
+	/**
+	 * Write a string to the terminal with defined formatting
+	 * @param string $text The text to display
+	 * @param string|integer|array $fgColor The color to use for the text displayed or a style array to use for all the formatting
+	 * @param string|integer $bgColor The color to use for the background
+	 * @param string $style The style to use for the text displayed
+	 */
 	public function Write($text, $fgColor = null, $bgColor = null, $style = null) {
 		if (!$this->usingWindows) {
 			// Check our colors and styles
@@ -307,29 +541,54 @@ class CLICommander {
 			
 			// Save text with formatting escape sequence
 			$text = $format.$text;
-			
-			if ($this->autoReset) $this->Reset();
 		}
 		
 		// Write our text to the output socket
 		$this->SystemWrite($text);
+		
+		if ($this->autoReset) $this->Reset();
 	}
 	
+	/**
+	 * Write output to the error socket
+	 * @param string $text The text to write to the error socket
+	 */
 	public function WriteError($text = 'A fatal error has occured!') {
 		$this->SystemWrite($text, true);
 	}
 	
+	/**
+	 * Write a string to the terminal with defined formatting and auto append a
+	 * newline character
+	 * @param string $text The text to display
+	 * @param string|integer|array $fgColor The color to use for the text displayed or a style array to use for all the formatting
+	 * @param string|integer $bgColor The color to use for the background
+	 * @param string $style The style to use for the text displayed
+	 */
 	public function WriteLine($text = '', $fgColor = null, $bgColor = null, $style = null) {
 		$this->Write($text, $fgColor, $bgColor, $style);
 		$this->SystemWrite($this->nl);
 	}
 	
+	/**
+	 * Write output from a block of templated text.  See the example for more 
+	 * information on using templates
+	 * @param string $text The text with template markup to display
+	 * @example example.templateOutput.php
+	 */
 	public function WriteTemplate($text) {
 		$output = $this->ParseTemplate($text);
 		$this->SystemWrite($output);
 	}
+	
 	/*
 	 * All Private Methods Below Here
+	 */
+	/**
+	 * Convert an RGB hex color to the closest xterm equivilent
+	 * @param string $rgbString The hex string to convert
+	 * @param boolean $foreground Whether this is for a foreground or background color
+	 * @return integer
 	 */
 	private function ClosestXtermColor($rgbString, $foreground = true) {
 		// Replace # sign if there
@@ -358,6 +617,10 @@ class CLICommander {
 		return $this->xtermColors[$color];
 	}
 	
+	/**
+	 * Convert a hex octet to the closest grey octet used for xterm colors
+	 * @param integer $g The integer value of the hex to be converted
+	 */
 	private function ClosestXtermGrey($g = 0) {
 		if ($g < 4) return '00';
 		if ($g > 243) return 'FF';
@@ -394,6 +657,11 @@ class CLICommander {
 		}
 	}
 	
+	/**
+	 * Get the closest xterm color octet for the octet supplied
+	 * @param integer $c
+	 * @return string
+	 */
 	private function ClosestXtermOctet($c = 0) {
 		if ($c >= 0 && $c < 47) {
 			return '00';
@@ -410,6 +678,12 @@ class CLICommander {
 		}
 	}
 	
+	/**
+	 * Generate the ANSI/XTERM format string for the format information passed
+	 * @param string|integer $fgColor The foreground color to use for the format string
+	 * @param string|integer $bgColor The background color to use for the format string
+	 * @param string $style The style to use for the format string
+	 */
 	private function GetFormatString($fgColor, $bgColor, $style) {
 		// Initialize the format arrays
 		$formats = array(
@@ -491,6 +765,11 @@ class CLICommander {
 		return $formatString;
 	}
 	
+	/**
+	 * Parse format code from template text and return format strings 
+	 * @param array $matches List of matched text from ParseTemplate
+	 * @return string
+	 */
 	private function ParseFormat($matches) {
 		$format = explode('|',strtolower($matches['format']));
 		$fg = (isset($format[0]) && !empty($format[0])) ? $format[0] : null;
@@ -504,10 +783,17 @@ class CLICommander {
 		return $this->GetFormatString($fg, $bg, $style);
 	}
 	
+	/**
+	 * Parse and return template text
+	 * @param string $data The text to parse
+	 */
 	private function ParseTemplate($data) {
 		return str_replace(array('\\{','\\}'),array('{','}'),preg_replace_callback('/\{(?P<format>[^\}\{]+)\}/', array($this, 'ParseFormat'), $data)) . $this->nl;
 	}
 	
+	/**
+	 * Process and track arguments that were passed to the script.
+	 */
 	private function ProcessArguments() {
 		if ($this->argc > 1) {
 			unset($this->argv[0]);
@@ -533,12 +819,17 @@ class CLICommander {
 						}
 					}
 				} else {
-					// Dunno yet
+					$this->argumentsPassed[] = $arg;
 				}
 			}
 		}
 	}
 	
+	/**
+	 * Write to an output socket with no formatting
+	 * @param string $text The text to write to the socket
+	 * @param boolean $useErrorSocket Whether to use the error socket or the output socket
+	 */
 	private function SystemWrite($text = '', $useErrorSocket = false) {
 		if ($useErrorSocket) {
 			@fwrite($this->errorSocket, $text);
