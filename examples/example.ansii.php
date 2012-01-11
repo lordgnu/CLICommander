@@ -1,9 +1,12 @@
 <?php
 
+// Include CLICommander
 require_once '../CLICommander.class.php';
 
+// Instance a new CLICommander object
 $cli = new CLICommander();
 
+// Create an array of colors to loop through
 $colors = array(
 	'black',
 	'red',
@@ -15,6 +18,7 @@ $colors = array(
 	'white'
 );
 
+// Create an array of styles to loop through
 $styles = array(
 	'default',
 	'bold',
@@ -30,6 +34,7 @@ $styles = array(
 	'superscript'
 );
 
+// Create a couple style arrays
 $style1 = array(
 	'foreground'	=>	'white',
 	'background'	=>	'red',
@@ -42,7 +47,10 @@ $style2 = array(
 	'style'	=>	'underline'
 );
 
+// Clear the screen
 $cli->Clear();
+
+// Change the terminal title
 $cli->WriteLine("Changing Terminal Title");
 $cli->WriteLine("-----------------------");
 for ($i = 3; $i > 0; $i--) {
@@ -53,6 +61,7 @@ $cli->SetTerminalTitle("CLICommander ANSI Example");
 sleep(1);
 $cli->WriteLine("Terminal title should now be: CLICommander ANSI Example");
 
+// Write the ANSI colors
 $cli->WriteLine();
 $cli->WriteLine("Initiating Color Test");
 $cli->WriteLine("---------------------");
@@ -63,6 +72,7 @@ foreach ($colors as $fg) {
 	$cli->WriteLine();
 }
 
+// Write with ANSI styles
 $cli->WriteLine();
 $cli->WriteLine("Initiating Styles Test");
 $cli->WriteLine("-----------------------");
@@ -72,6 +82,7 @@ foreach ($styles as $style) {
 }
 $cli->SetDefaultStyle('default');
 
+// Ding the terminal bell a few times
 $cli->WriteLine();
 $cli->WriteLine("Initiating Bell Test");
 $cli->WriteLine("--------------------");
@@ -82,6 +93,7 @@ for ($i = 0; $i < 5; $i++) {
 	sleep(1);
 }
 
+// Write with the style arrays
 $cli->WriteLine();
 $cli->WriteLine("Testing writing with style array");
 $cli->WriteLine("--------------------------------");
