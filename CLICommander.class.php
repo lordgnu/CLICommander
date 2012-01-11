@@ -1,8 +1,6 @@
 <?php
 
 /**
- * @package CLICommander
- * 
  * CLICommander is a set of advanced tools for working with PHP scripts on 
  * the linux/unix command line.  It offers features such as colored output, 
  * options handling, and a whole lot more.  CLICommander implements most 
@@ -12,11 +10,14 @@
  * If you like CLICommander, please consider donating
  *  - BTC: 1K2tvdYzdDDd8w6vNHQgvbNQnhcHqLEadx
  *  - LTC: LfceD3QH2n1FqH8inqHdKxjBFV55QvuESv
+ *  
+ * @package CLICommander
  * 
  * @author Don Bauer <lordgnu@me.com>
  * @link https://github.com/lordgnu/CLICommander
  * @license MIT License
  * 
+ * @copyright
  * Copyright (c) 2011 Don Bauer <lordgnu@me.com>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -36,7 +37,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 class CLICommander {
 	/**
 	 * The version of CLICommander
@@ -88,8 +88,7 @@ class CLICommander {
 	private $bashSupport	=	false;
 	
 	/**
-	 * Flag for whether or not to auto reset the terminal to default after
-	 * output is written
+	 * Flag for whether or not to auto reset the terminal to default after output is written
 	 * @var boolean
 	 */
 	private $autoReset		=	true;
@@ -271,7 +270,9 @@ class CLICommander {
 	);
 	
 	/**
-	 * CLICommander constructor.  Returns an instanced CLICommander object
+	 * CLICommander constructor.  
+	 * 
+	 * Returns an instanced CLICommander object
 	 */
 	public function CLICommander() {
 		// Check to see if we are using windows
@@ -300,7 +301,9 @@ class CLICommander {
 	}
 	
 	/**
-	 * CLICommander destructor.  Reset the terminal and closes open sockets
+	 * CLICommander destructor.  
+	 * 
+	 * Reset the terminal and closes open sockets
 	 */
 	public function __destruct() {
 		// Reset the terminal 
@@ -314,6 +317,7 @@ class CLICommander {
 	
 	/**
 	 * Check whether an argument was passed to the PHP script
+	 * 
 	 * @param string $argument The argument to check
 	 * @return boolean
 	 */
@@ -338,8 +342,7 @@ class CLICommander {
 	}
 	
 	/**
-	 * Disable automatic resetting the terminal to default after writing 
-	 * output to the terminal
+	 * Disable automatic resetting the terminal to default after writing output to the terminal
 	 * 
 	 * This causes changes in formatting to persist until a new format is set or
 	 * the reset method is called manually
@@ -349,16 +352,34 @@ class CLICommander {
 	}
 	
 	/**
-	 * Enable automatic resetting of the terminal to default after writing 
-	 * output to the terminal
+	 * Enable automatic resetting of the terminal to default after writing output to the terminal
 	 */
 	public function EnableAutoReset() {
 		$this->autoReset = true;
 	}
 	
 	/**
-	 * Get an array of the arguments passed and their associated values (if there
-	 * are any)
+	 * Get an array of the arguments passed and their associated values (if there are any)
+	 * 
+	 * Any arguments passed to the script without a preceeding "-" or "--" will show up in
+	 * this array with numbered indexes.  All arguments passed with a preceeding "-" or "--"
+	 * will show up with named indexes
+	 * 
+	 * <code>
+	 * ./myScript.php -vad --file myFile.php
+	 * <?php
+	 * print_r($cli->GetArguments());
+	 * ?>
+	 * OUTPUT:
+	 * array(
+	 * 	'v'	=>	1,
+	 * 	'a'	=>	1,
+	 * 	'd'	=>	1,
+	 * 	'file'	=>	'myFile.php',
+	 * 	0	=>	'myFile.php'
+	 * )
+	 * </code>
+	 * 
 	 * @return array
 	 */
 	public function GetArguments() {
@@ -371,9 +392,12 @@ class CLICommander {
 	}
 	
 	/**
+	 * Get the value of an argument passed to the script
+	 * 
 	 * Returns the value of an argument passed to the php script or true of the 
-	 * agument was passed but there was no associated value.  Returns false if
-	 * the argument was not passed
+	 * argument was passed but there was no associated value.  Returns false if
+	 * the argument was not passed.
+	 * 
 	 * @param string $argument The argument to get the value of
 	 * @return mixed
 	 */
@@ -390,12 +414,14 @@ class CLICommander {
 	}
 	
 	/**
-	 * Get a single character from input.  This method is not very reliable on
+	 * Get a single character from input.  
+	 * 
+	 * This method is not very reliable on
 	 * most PHP installations because it is a blocking call.  If bash is found
 	 * on the system, it will use bash to get a single character from the input,
 	 * otherwise this function will wait until the enter key has been pressed 
-	 * and will return the first character the was entered prior to pressing
-	 * enter
+	 * and will return the first character the was entered prior to pressing enter
+	 * 
 	 * @return string
 	 */
 	public function GetChar() {
@@ -405,6 +431,7 @@ class CLICommander {
 	
 	/**
 	 * Returns a line of text entered without the newline chacter
+	 * 
 	 * @return string
 	 */
 	public function GetLine() {
@@ -413,6 +440,7 @@ class CLICommander {
 	
 	/**
 	 * Determine whether the current terminal has support for xterm colors
+	 * 
 	 * @return boolean
 	 */
 	public function HasXtermSupport() {
@@ -420,8 +448,11 @@ class CLICommander {
 	}
 	
 	/**
-	 * Request input from the user but don't echo the characters as the user
-	 * enters them.  Very useful for things such as passwords.
+	 * Request input from the user, but hide the characters as they are entered
+	 * 
+	 * This is very useful for passwords
+	 *
+	 * @return string
 	 */
 	public function MaskedGetLine() {
 		$get = preg_replace("(\r\n|\n|\r)", '', `stty -echo; head -n1 ; stty echo`);
@@ -430,13 +461,16 @@ class CLICommander {
 	}
 	
 	/**
-	 * Writes some text (i.e. a question) and waits for user input.  Returns
-	 * the string entered by the user.  This is a masked prompt, so text is not 
-	 * echoed as the user types characters.  Usefull for passwords.
+	 * Writes some text (i.e. a question) and waits for user input.  
+	 * 
+	 * Returns the string entered by the user.  This is a masked prompt, so text is not 
+	 * echoed as the user types characters.  Very useful for passwords.
+	 * 
 	 * @param string $text The text to display
 	 * @param string|integer $fgColor The color to use for the text displayed or a style array to use for all the formatting
 	 * @param string|integer $bgColor The color to use for the background
 	 * @param string $style The style to use for the text displayed
+	 * 
 	 * @return string
 	 */
 	public function MaskedPrompt($text, $fgColor = null, $bgColor = null, $style = null) {
@@ -445,12 +479,15 @@ class CLICommander {
 	}
 	
 	/**
-	 * Writes some text (i.e. a question) and waits for user input.  Returns
-	 * the string entered by the user.  
+	 * Writes some text (i.e. a question) and waits for user input.  
+	 * 
+	 * Returns the string entered by the user.  Input is not masked.
+	 *   
 	 * @param string $text The text to display
 	 * @param string|integer|array $fgColor The color to use for the text displayed or a style array to use for all the formatting
 	 * @param string|integer $bgColor The color to use for the background
 	 * @param string $style The style to use for the text displayed
+	 * 
 	 * @return string
 	 */
 	public function Prompt($text, $fgColor = null, $bgColor = null, $style = null) {
@@ -460,7 +497,13 @@ class CLICommander {
 	
 	/**
 	 * Resets the terminal to the current default format
+	 * 
+	 * If requested, this method will return the format string that would have been 
+	 * written to the output socket, rather than writing it.
+	 * 
 	 * @param boolean $return When true, just returns the escape sequence of the reset
+	 * 
+	 * @return string|void
 	 */
 	public function Reset($return = false) {
 		if ($this->usingWindows) return;
@@ -474,6 +517,7 @@ class CLICommander {
 	
 	/**
 	 * Changes the default foreground color for the session
+	 * 
 	 * @param string|integer $fgColor The foreground color to set as default
 	 */
 	public function SetDefaultForegroundColor($fgColor) {
@@ -482,6 +526,7 @@ class CLICommander {
 	
 	/**
 	 * Changes the default background color for the session
+	 * 
 	 * @param string|integer $bgColor The background color to set as default
 	 */
 	public function SetDefaultBackgroundColor($bgColor) {
@@ -490,6 +535,7 @@ class CLICommander {
 	
 	/**
 	 * Changes the default style for the session
+	 * 
 	 * @param string $style The style to set as default
 	 */
 	public function SetDefaultStyle($style) {
@@ -498,6 +544,7 @@ class CLICommander {
 	
 	/**
 	 * Changes the terminal title for the session
+	 * 
 	 * @param string $title The title to set for this terminal
 	 */
 	public function SetTerminalTitle($title = "CLICommander Terminal") {
@@ -506,6 +553,7 @@ class CLICommander {
 	
 	/**
 	 * Change the cursor position to a new x,y coordinate
+	 * 
 	 * @param integer $x The x coordinate to set the cursor to
 	 * @param integer $y The y coordinate to set the cursor to
 	 */
@@ -517,6 +565,10 @@ class CLICommander {
 	
 	/**
 	 * Write a string to the terminal with defined formatting
+	 * 
+	 * Please note that Write() does not append newline characters to the text entered.
+	 * If you need a newline character, use WriteLine()
+	 * 
 	 * @param string $text The text to display
 	 * @param string|integer|array $fgColor The color to use for the text displayed or a style array to use for all the formatting
 	 * @param string|integer $bgColor The color to use for the background
@@ -551,6 +603,7 @@ class CLICommander {
 	
 	/**
 	 * Write output to the error socket
+	 * 
 	 * @param string $text The text to write to the error socket
 	 */
 	public function WriteError($text = 'A fatal error has occured!') {
@@ -558,8 +611,8 @@ class CLICommander {
 	}
 	
 	/**
-	 * Write a string to the terminal with defined formatting and auto append a
-	 * newline character
+	 * Write a string to the terminal with defined formatting and auto append a newline character
+	 * 
 	 * @param string $text The text to display
 	 * @param string|integer|array $fgColor The color to use for the text displayed or a style array to use for all the formatting
 	 * @param string|integer $bgColor The color to use for the background
@@ -571,8 +624,10 @@ class CLICommander {
 	}
 	
 	/**
-	 * Write output from a block of templated text.  See the example for more 
-	 * information on using templates
+	 * Write output from a block of templated text.  
+	 * 
+	 * See the example for more information on using templates
+	 * 
 	 * @param string $text The text with template markup to display
 	 * @example example.templateOutput.php
 	 */
@@ -586,8 +641,10 @@ class CLICommander {
 	 */
 	/**
 	 * Convert an RGB hex color to the closest xterm equivilent
+	 * 
 	 * @param string $rgbString The hex string to convert
 	 * @param boolean $foreground Whether this is for a foreground or background color
+	 * 
 	 * @return integer
 	 */
 	private function ClosestXtermColor($rgbString, $foreground = true) {
@@ -619,7 +676,10 @@ class CLICommander {
 	
 	/**
 	 * Convert a hex octet to the closest grey octet used for xterm colors
+	 * 
 	 * @param integer $g The integer value of the hex to be converted
+	 * 
+	 * @return string
 	 */
 	private function ClosestXtermGrey($g = 0) {
 		if ($g < 4) return '00';
@@ -659,7 +719,9 @@ class CLICommander {
 	
 	/**
 	 * Get the closest xterm color octet for the octet supplied
+	 * 
 	 * @param integer $c
+	 * 
 	 * @return string
 	 */
 	private function ClosestXtermOctet($c = 0) {
@@ -680,9 +742,12 @@ class CLICommander {
 	
 	/**
 	 * Generate the ANSI/XTERM format string for the format information passed
+	 * 
 	 * @param string|integer $fgColor The foreground color to use for the format string
 	 * @param string|integer $bgColor The background color to use for the format string
 	 * @param string $style The style to use for the format string
+	 * 
+	 * @return string
 	 */
 	private function GetFormatString($fgColor, $bgColor, $style) {
 		// Initialize the format arrays
@@ -767,7 +832,9 @@ class CLICommander {
 	
 	/**
 	 * Parse format code from template text and return format strings 
+	 * 
 	 * @param array $matches List of matched text from ParseTemplate
+	 * 
 	 * @return string
 	 */
 	private function ParseFormat($matches) {
@@ -785,7 +852,10 @@ class CLICommander {
 	
 	/**
 	 * Parse and return template text
+	 * 
 	 * @param string $data The text to parse
+	 * 
+	 * @return string
 	 */
 	private function ParseTemplate($data) {
 		return str_replace(array('\\{','\\}'),array('{','}'),preg_replace_callback('/\{(?P<format>[^\}\{]+)\}/', array($this, 'ParseFormat'), $data)) . $this->nl;
@@ -827,6 +897,7 @@ class CLICommander {
 	
 	/**
 	 * Write to an output socket with no formatting
+	 * 
 	 * @param string $text The text to write to the socket
 	 * @param boolean $useErrorSocket Whether to use the error socket or the output socket
 	 */
