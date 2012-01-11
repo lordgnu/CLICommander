@@ -1,0 +1,26 @@
+ABOUT
+	CLICommander is a class that enables both ANSI and xterm color support
+	for PHP command line applications.  Additionally, it offers features
+	such as formatting template support, advanced command line options handling,
+	and a whole lot more.
+	
+	CLICommander allows you to make rich command line user interfaces without
+	having to include extentions such as ncurses.
+	
+FEATURES
+	* Full ANSI 16-Color and Style support
+	* Xterm 256-Color support
+	* ANSI Terminal Bell Support
+	* ANSI Terminal Title Support
+	* Masked Input Support
+	* Simple User Prompts
+	* Advanced Options Handling
+	* Template Driven Formatting
+	* HTML to xterm Color Conversion
+
+VERSION HISTORY
+	1.0 - 2012-01-11
+		Initial Creation
+
+HOW TO USE
+	Coming soon...
