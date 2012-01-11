@@ -237,8 +237,17 @@ class CLICommander {
 		return $this->GetLine();
 	}
 	
+	public function Reset($return = false) {
+		if (!$return) {
+			$this->SystemWrite(sprintf($this->escape,0));
+			$this->SystemWrite($this->GetFormatString($this->defaults['foreground'], $this->defaults['background'], $this->defaults['style']));
+		} else {
+			return sprintf($this->escape,0).$this->GetFormatString($this->defaults['foreground'], $this->defaults['background'], $this->defaults['style']);
+		}
+	}
+	
 	public function SetDefaultForegroundColor($fgColor) {
-		$this->defaults['forground'] = $fgColor;
+		$this->defaults['foreground'] = $fgColor;
 	}
 	
 	public function SetDefaultBackgroundColor($bgColor) {
@@ -279,7 +288,7 @@ class CLICommander {
 			// Save text with formatting escape sequence
 			$text = $format.$text;
 			
-			if ($this->autoReset) $this->SystemWrite(sprintf($this->escape, 0));
+			if ($this->autoReset) $this->Reset();
 		}
 		
 		// Write our text to the output socket
