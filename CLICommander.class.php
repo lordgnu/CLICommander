@@ -181,6 +181,9 @@ class CLICommander {
 	}
 	
 	public function __destruct() {
+		// Reset the terminal 
+		$this->SystemWrite(sprintf($this->escape,0));
+		
 		// Close our sockets
 		@fclose($this->outputSocket);
 		@fclose($this->inputSocket);
