@@ -14,7 +14,7 @@ FEATURES
 	* ANSI Terminal Title Support
 	* Masked Input Support
 	* Simple User Prompts
-	* Advanced Options Handling
+	* Advanced Argument Handling
 	* Template Driven Formatting
 	* HTML to xterm Color Conversion
 
