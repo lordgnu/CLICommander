@@ -817,7 +817,7 @@ class CLICommander {
 					
 					if (array_key_exists($bgColor, $this->xtermColors)) {
 						// Good xterm color
-						$xFormats['background'] = sprintf($this->escape, '38;5;'.$this->xtermColors[$bgColor]);
+						$xFormats['background'] = sprintf($this->escape, '48;5;'.$this->xtermColors[$bgColor]);
 					} else {
 						if (strlen($bgColor) == 6 || strlen($bgColor) == 7) {
 							// Convert RGB string to the closest xterm capable color
