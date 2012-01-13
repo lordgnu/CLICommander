@@ -147,6 +147,17 @@ class CLICommander {
 	private $errorStream	=	'php://stderr';
 	
 	/**
+	 * Threshhold for approximating greys when evaulating xterm colors
+	 * 
+	 * This is the threashold used by the IsAlmostGrey() method.  Setting this too high
+	 * can make normal colors be converted to greyscale, and setting it too low can make
+	 * colors that are almost grey show up a black
+	 * 
+	 * @var integer
+	 */
+	private $xtermGreyThreshold	=	24;
+	
+	/**
 	 * The socket from which to read input
 	 * @var resource
 	 */
@@ -664,8 +675,8 @@ class CLICommander {
 		$b = hexdec(substr($rgbString,4,2));
 		
 		// Check for Greyscale color
-		if ($r == $g && $g == $b) {
-			$g = $this->ClosestXtermGrey($r);
+		if ($r == $g && $g == $b || $this->IsAlmostGrey($r, $g, $b)) {
+			$g = $this->ClosestXtermGrey(max($r,$g,$b));
 			$color = $g.$g.$g;
 		} else {
 			// Color
@@ -708,7 +719,7 @@ class CLICommander {
 		}
 		
 		unset($m);
-		$h = dechex($g);
+		$h = strtoupper(dechex($g));
 		unset($g);
 		
 		if (strlen($h) == 1) {
@@ -835,6 +846,33 @@ class CLICommander {
 		$formatString = ((count($formats)) ? sprintf($this->escape, implode(';',$formats)) : '') . $xFormats['foreground'] . $xFormats['background'];
 		
 		return $formatString;
+	}
+	
+	/**
+	 * Determines if the color passed is almost a grey
+	 * 
+	 * This function determines if the 3 octets that make up an RGB color are closes
+	 * enough to each other to be rendered as a grey.  This prevents tinted greys from
+	 * being rendered as black when using xterm colors
+	 * 
+	 * @param integer $r
+	 * @param integer $g
+	 * @param integer $b
+	 */
+	private function IsAlmostGrey($r, $g, $b) {
+		// Get the smallest value of the colors passed
+		$min = min($r, $g, $b);
+		
+		// Subtract the min value from all colors
+		$r -= $min;
+		$g -= $min;
+		$b -= $min;
+		
+		// Now check the max against out threshhold
+		if (max($r, $g, $b) < $this->xtermGreyThreshold) {
+			return true;
+		}
+		return false;
 	}
 	
 	/**
