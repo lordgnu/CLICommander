@@ -803,7 +803,7 @@ class CLICommander {
 					// Good xterm color
 					$xFormats['background'] = sprintf($this->escape, '38;5;'.$this->xtermColors[$bgColor]);
 				} else {
-					if (is_string($bgColor) && (strlen($bgColor == 6) || strlen($bgColor) == 7)) {
+					if (strlen($bgColor) == 6 || strlen($bgColor) == 7) {
 						// Convert RGB string to the closest xterm capable color
 						$xFormats['background'] = sprintf($this->escape, '48;5;'.$this->ClosestXtermColor($bgColor, false));
 					} elseif ((int)$bgColor >= 0 && (int)$bgColor <= 255) {
