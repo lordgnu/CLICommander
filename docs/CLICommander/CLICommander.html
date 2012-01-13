@@ -58,7 +58,7 @@
 					static <span class="var-type">string</span>
 					<a href="#$version" title="details" class="var-name">$version</a>
 				</div>
-																																				<div class="var-title">
+																																												<div class="var-title">
 					<span class="var-type">integer</span>
 					<a href="#$argc" title="details" class="var-name">$argc</a>
 				</div>
@@ -147,6 +147,10 @@
 					<a href="#$xtermColors" title="details" class="var-name">$xtermColors</a>
 				</div>
 																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$xtermGreyThreshold" title="details" class="var-name">$xtermGreyThreshold</a>
+				</div>
+																<div class="var-title">
 					<span class="var-type">boolean</span>
 					<a href="#$xtermSupport" title="details" class="var-name">$xtermSupport</a>
 				</div>
@@ -166,7 +170,7 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																																																																																																																																																																																																																																																																																						
+																																																																																																																																																																																																																																																																																														
 				<div class="method-definition">
 											<span class="method-result">CLICommander</span>
 										<a href="#CLICommander" title="details" class="method-name">CLICommander</a>
@@ -261,6 +265,12 @@
 											<span class="method-result">boolean</span>
 										<a href="#HasXtermSupport" title="details" class="method-name">HasXtermSupport</a>
 										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#IsAlmostGrey" title="details" class="method-name">IsAlmostGrey</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$r</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$g</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$b</span>)
 									</div>
 														
 				<div class="method-definition">
@@ -522,7 +532,7 @@
 		<span class="var-title">
 			<span class="var-type">array</span>
 			<span class="var-name">$backgroundColors</span>
-			 = <span class="var-default">array(<br />		'default'	=&gt;	49,<br />		'black'		=&gt;	40,<br />		'red'		=&gt;	41,<br />		'green'		=&gt;	42,<br />		'yellow'	=&gt;	43,<br />		'blue'		=&gt;	44,<br />		'magenta'	=&gt;	45,<br />		'cyan'		=&gt;	46,<br />		'white'		=&gt;	47<br />	)</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a187">187</a></span>)
+			 = <span class="var-default">array(<br />		'default'	=&gt;	49,<br />		'black'		=&gt;	40,<br />		'red'		=&gt;	41,<br />		'green'		=&gt;	42,<br />		'yellow'	=&gt;	43,<br />		'blue'		=&gt;	44,<br />		'magenta'	=&gt;	45,<br />		'cyan'		=&gt;	46,<br />		'white'		=&gt;	47<br />	)</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a198">198</a></span>)
 		</span>
 	</div>
 
@@ -632,7 +642,7 @@
 		<span class="var-title">
 			<span class="var-type">resource</span>
 			<span class="var-name">$errorSocket</span>
-						(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a165">165</a></span>)
+						(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a176">176</a></span>)
 		</span>
 	</div>
 
@@ -698,7 +708,7 @@
 		<span class="var-title">
 			<span class="var-type">array</span>
 			<span class="var-name">$foregroundColors</span>
-			 = <span class="var-default">array(<br />		'default'	=&gt;	39,<br />		'black'		=&gt;	30,<br />		'red'		=&gt;	31,<br />		'green'		=&gt;	32,<br />		'yellow'	=&gt;	33,<br />		'blue'		=&gt;	34,<br />		'magenta'	=&gt;	35,<br />		'cyan'		=&gt;	36,<br />		'white'		=&gt;	37<br />	)</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a171">171</a></span>)
+			 = <span class="var-default">array(<br />		'default'	=&gt;	39,<br />		'black'		=&gt;	30,<br />		'red'		=&gt;	31,<br />		'green'		=&gt;	32,<br />		'yellow'	=&gt;	33,<br />		'blue'		=&gt;	34,<br />		'magenta'	=&gt;	35,<br />		'cyan'		=&gt;	36,<br />		'white'		=&gt;	37<br />	)</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a182">182</a></span>)
 		</span>
 	</div>
 
@@ -720,7 +730,7 @@
 		<span class="var-title">
 			<span class="var-type">resource</span>
 			<span class="var-name">$inputSocket</span>
-						(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a153">153</a></span>)
+						(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a164">164</a></span>)
 		</span>
 	</div>
 
@@ -786,7 +796,7 @@
 		<span class="var-title">
 			<span class="var-type">resource</span>
 			<span class="var-name">$outputSocket</span>
-						(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a159">159</a></span>)
+						(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a170">170</a></span>)
 		</span>
 	</div>
 
@@ -830,7 +840,7 @@
 		<span class="var-title">
 			<span class="var-type">array</span>
 			<span class="var-name">$styles</span>
-			 = <span class="var-default">array(<br />		'default'			=&gt;	0,<br />		'bold'				=&gt;	1,<br />		'faint'				=&gt;	2,<br />		'italic'			=&gt;	3,<br />		'underline'			=&gt;	4,<br />		'blink'				=&gt;	5,	// Not widely supported<br />		'blinkfast'			=&gt;	6,	// Not widely supported<br />		'reverse'			=&gt;	7,<br />		'conceal'			=&gt;	8,	// Not widely supported<br />		'doubleunderline'	=&gt;	21,	// Not widely supported<br />		'subscript'			=&gt;	48,	// Not widely supported<br />		'superscript'		=&gt;	49	// Not widely supported<br />	)</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a203">203</a></span>)
+			 = <span class="var-default">array(<br />		'default'			=&gt;	0,<br />		'bold'				=&gt;	1,<br />		'faint'				=&gt;	2,<br />		'italic'			=&gt;	3,<br />		'underline'			=&gt;	4,<br />		'blink'				=&gt;	5,	// Not widely supported<br />		'blinkfast'			=&gt;	6,	// Not widely supported<br />		'reverse'			=&gt;	7,<br />		'conceal'			=&gt;	8,	// Not widely supported<br />		'doubleunderline'	=&gt;	21,	// Not widely supported<br />		'subscript'			=&gt;	48,	// Not widely supported<br />		'superscript'		=&gt;	49	// Not widely supported<br />	)</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a214">214</a></span>)
 		</span>
 	</div>
 
@@ -874,7 +884,7 @@
 		<span class="var-title">
 			<span class="var-type">array</span>
 			<span class="var-name">$xtermColors</span>
-			 = <span class="var-default">array(<br />		'000000'=&gt;16,'00005F'=&gt;17,'000087'=&gt;18,'0000AF'=&gt;19,'0000D7'=&gt;20,<br />		'0000FF'=&gt;21,'005F00'=&gt;22,'005F5F'=&gt;23,'005F87'=&gt;24,'005FAF'=&gt;25,<br />		'005FD7'=&gt;26,'005FFF'=&gt;27,'008700'=&gt;28,'00875F'=&gt;29,'008787'=&gt;30,<br />		'0087AF'=&gt;31,'0087D7'=&gt;32,'0087FF'=&gt;33,'00AF00'=&gt;34,'00AF5F'=&gt;35,<br />		'00AF87'=&gt;36,'00AFAF'=&gt;37,'00AFD7'=&gt;38,'00AFFF'=&gt;39,'00D700'=&gt;40,<br />		'00D75F'=&gt;41,'00D787'=&gt;42,'00D7AF'=&gt;43,'00D7D7'=&gt;44,'00D7FF'=&gt;45,<br />		'00FF00'=&gt;46,'00FF5F'=&gt;47,'00FF87'=&gt;48,'00FFAF'=&gt;49,'00FFD7'=&gt;50,<br />		'00FFFF'=&gt;51,'5F0000'=&gt;52,'5F005F'=&gt;53,'5F0087'=&gt;54,'5F00AF'=&gt;55,<br />		'5F00D7'=&gt;56,'5F00FF'=&gt;57,'5F5F00'=&gt;58,'5F5F5F'=&gt;59,'5F5F87'=&gt;60,<br />		'5F5FAF'=&gt;61,'5F5FD7'=&gt;62,'5F5FFF'=&gt;63,'5F8700'=&gt;64,'5F875F'=&gt;65,<br />		'5F8787'=&gt;66,'5F87AF'=&gt;67,'5F87D7'=&gt;68,'5F87FF'=&gt;69,'5FAF00'=&gt;70,<br />		'5FAF5F'=&gt;71,'5FAF87'=&gt;72,'5FAFAF'=&gt;73,'5FAFD7'=&gt;74,'5FAFFF'=&gt;75,<br />		'5FD700'=&gt;76,'5FD75F'=&gt;77,'5FD787'=&gt;78,'5FD7AF'=&gt;79,'5FD7D7'=&gt;80,<br />		'5FD7FF'=&gt;81,'5FFF00'=&gt;82,'5FFF5F'=&gt;83,'5FFF87'=&gt;84,'5FFFAF'=&gt;85,<br />		'5FFFD7'=&gt;86,'5FFFFF'=&gt;87,'870000'=&gt;88,'87005F'=&gt;89,'870087'=&gt;90,<br />		'8700AF'=&gt;91,'8700D7'=&gt;92,'8700FF'=&gt;93,'875F00'=&gt;94,'875F5F'=&gt;95,<br />		'875F87'=&gt;96,'875FAF'=&gt;97,'875FD7'=&gt;98,'875FFF'=&gt;99,'878700'=&gt;100,<br />		'87875F'=&gt;101,'878787'=&gt;102,'8787AF'=&gt;103,'8787D7'=&gt;104,'8787FF'=&gt;105,<br />		'87AF00'=&gt;106,'87AF5F'=&gt;107,'87AF87'=&gt;108,'87AFAF'=&gt;109,'87AFD7'=&gt;110,<br />		'87AFFF'=&gt;111,'87D700'=&gt;112,'87D75F'=&gt;113,'87D787'=&gt;114,'87D7AF'=&gt;115,<br />		'87D7D7'=&gt;116,'87D7FF'=&gt;117,'87FF00'=&gt;118,'87FF5F'=&gt;119,'87FF87'=&gt;120,<br />		'87FFAF'=&gt;121,'87FFD7'=&gt;122,'87FFFF'=&gt;123,'AF0000'=&gt;124,'AF005F'=&gt;125,<br />		'AF0087'=&gt;126,'AF00AF'=&gt;127,'AF00D7'=&gt;128,'AF00FF'=&gt;129,'AF5F00'=&gt;130,<br />		'AF5F5F'=&gt;131,'AF5F87'=&gt;132,'AF5FAF'=&gt;133,'AF5FD7'=&gt;134,'AF5FFF'=&gt;135,<br />		'AF8700'=&gt;136,'AF875F'=&gt;137,'AF8787'=&gt;138,'AF87AF'=&gt;139,'AF87D7'=&gt;140,<br />		'AF87FF'=&gt;141,'AFAF00'=&gt;142,'AFAF5F'=&gt;143,'AFAF87'=&gt;144,'AFAFAF'=&gt;145,<br />		'AFAFD7'=&gt;146,'AFAFFF'=&gt;147,'AFD700'=&gt;148,'AFD75F'=&gt;149,'AFD787'=&gt;150,<br />		'AFD7AF'=&gt;151,'AFD7D7'=&gt;152,'AFD7FF'=&gt;153,'AFFF00'=&gt;154,'AFFF5F'=&gt;155,<br />		'AFFF87'=&gt;156,'AFFFAF'=&gt;157,'AFFFD7'=&gt;158,'AFFFFF'=&gt;159,'D70000'=&gt;160,<br />		'D7005F'=&gt;161,'D70087'=&gt;162,'D700AF'=&gt;163,'D700D7'=&gt;164,'D700FF'=&gt;165,<br />		'D75F00'=&gt;166,'D75F5F'=&gt;167,'D75F87'=&gt;168,'D75FAF'=&gt;169,'D75FD7'=&gt;170,<br />		'D75FFF'=&gt;171,'D78700'=&gt;172,'D7875F'=&gt;173,'D78787'=&gt;174,'D787AF'=&gt;175,<br />		'D787D7'=&gt;176,'D787FF'=&gt;177,'D7AF00'=&gt;178,'D7AF5F'=&gt;179,'D7AF87'=&gt;180,<br />		'D7AFAF'=&gt;181,'D7AFD7'=&gt;182,'D7AFFF'=&gt;183,'D7D700'=&gt;184,'D7D75F'=&gt;185,<br />		'D7D787'=&gt;186,'D7D7AF'=&gt;187,'D7D7D7'=&gt;188,'D7D7FF'=&gt;189,'D7FF00'=&gt;190,<br />		'D7FF5F'=&gt;191,'D7FF87'=&gt;192,'D7FFAF'=&gt;193,'D7FFD7'=&gt;194,'D7FFFF'=&gt;195,<br />		'FF0000'=&gt;196,'FF005F'=&gt;197,'FF0087'=&gt;198,'FF00AF'=&gt;199,'FF00D7'=&gt;200,<br />		'FF00FF'=&gt;201,'FF5F00'=&gt;202,'FF5F5F'=&gt;203,'FF5F87'=&gt;204,'FF5FAF'=&gt;205,<br />		'FF5FD7'=&gt;206,'FF5FFF'=&gt;207,'FF8700'=&gt;208,'FF875F'=&gt;209,'FF8787'=&gt;210,<br />		'FF87AF'=&gt;211,'FF87D7'=&gt;212,'FF87FF'=&gt;213,'FFAF00'=&gt;214,'FFAF5F'=&gt;215,<br />		'FFAF87'=&gt;216,'FFAFAF'=&gt;217,'FFAFD7'=&gt;218,'FFAFFF'=&gt;219,'FFD700'=&gt;220,<br />		'FFD75F'=&gt;221,'FFD787'=&gt;222,'FFD7AF'=&gt;223,'FFD7D7'=&gt;224,'FFD7FF'=&gt;225,<br />		'FFFF00'=&gt;226,'FFFF5F'=&gt;227,'FFFF87'=&gt;228,'FFFFAF'=&gt;229,'FFFFD7'=&gt;230,<br />		'FFFFFF'=&gt;231,'080808'=&gt;232,'121212'=&gt;233,'1C1C1C'=&gt;234,'262626'=&gt;235,<br />		'303030'=&gt;236,'3A3A3A'=&gt;237,'444444'=&gt;238,'4E4E4E'=&gt;239,'585858'=&gt;240,<br />		'626262'=&gt;241,'6C6C6C'=&gt;242,'767676'=&gt;243,'808080'=&gt;244,'8A8A8A'=&gt;245,<br />		'949494'=&gt;246,'9E9E9E'=&gt;247,'A8A8A8'=&gt;248,'B2B2B2'=&gt;249,'BCBCBC'=&gt;250,<br />		'C6C6C6'=&gt;251,'D0D0D0'=&gt;252,'DADADA'=&gt;253,'E4E4E4'=&gt;254,'EEEEEE'=&gt;255<br />	)</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a222">222</a></span>)
+			 = <span class="var-default">array(<br />		'000000'=&gt;16,'00005F'=&gt;17,'000087'=&gt;18,'0000AF'=&gt;19,'0000D7'=&gt;20,<br />		'0000FF'=&gt;21,'005F00'=&gt;22,'005F5F'=&gt;23,'005F87'=&gt;24,'005FAF'=&gt;25,<br />		'005FD7'=&gt;26,'005FFF'=&gt;27,'008700'=&gt;28,'00875F'=&gt;29,'008787'=&gt;30,<br />		'0087AF'=&gt;31,'0087D7'=&gt;32,'0087FF'=&gt;33,'00AF00'=&gt;34,'00AF5F'=&gt;35,<br />		'00AF87'=&gt;36,'00AFAF'=&gt;37,'00AFD7'=&gt;38,'00AFFF'=&gt;39,'00D700'=&gt;40,<br />		'00D75F'=&gt;41,'00D787'=&gt;42,'00D7AF'=&gt;43,'00D7D7'=&gt;44,'00D7FF'=&gt;45,<br />		'00FF00'=&gt;46,'00FF5F'=&gt;47,'00FF87'=&gt;48,'00FFAF'=&gt;49,'00FFD7'=&gt;50,<br />		'00FFFF'=&gt;51,'5F0000'=&gt;52,'5F005F'=&gt;53,'5F0087'=&gt;54,'5F00AF'=&gt;55,<br />		'5F00D7'=&gt;56,'5F00FF'=&gt;57,'5F5F00'=&gt;58,'5F5F5F'=&gt;59,'5F5F87'=&gt;60,<br />		'5F5FAF'=&gt;61,'5F5FD7'=&gt;62,'5F5FFF'=&gt;63,'5F8700'=&gt;64,'5F875F'=&gt;65,<br />		'5F8787'=&gt;66,'5F87AF'=&gt;67,'5F87D7'=&gt;68,'5F87FF'=&gt;69,'5FAF00'=&gt;70,<br />		'5FAF5F'=&gt;71,'5FAF87'=&gt;72,'5FAFAF'=&gt;73,'5FAFD7'=&gt;74,'5FAFFF'=&gt;75,<br />		'5FD700'=&gt;76,'5FD75F'=&gt;77,'5FD787'=&gt;78,'5FD7AF'=&gt;79,'5FD7D7'=&gt;80,<br />		'5FD7FF'=&gt;81,'5FFF00'=&gt;82,'5FFF5F'=&gt;83,'5FFF87'=&gt;84,'5FFFAF'=&gt;85,<br />		'5FFFD7'=&gt;86,'5FFFFF'=&gt;87,'870000'=&gt;88,'87005F'=&gt;89,'870087'=&gt;90,<br />		'8700AF'=&gt;91,'8700D7'=&gt;92,'8700FF'=&gt;93,'875F00'=&gt;94,'875F5F'=&gt;95,<br />		'875F87'=&gt;96,'875FAF'=&gt;97,'875FD7'=&gt;98,'875FFF'=&gt;99,'878700'=&gt;100,<br />		'87875F'=&gt;101,'878787'=&gt;102,'8787AF'=&gt;103,'8787D7'=&gt;104,'8787FF'=&gt;105,<br />		'87AF00'=&gt;106,'87AF5F'=&gt;107,'87AF87'=&gt;108,'87AFAF'=&gt;109,'87AFD7'=&gt;110,<br />		'87AFFF'=&gt;111,'87D700'=&gt;112,'87D75F'=&gt;113,'87D787'=&gt;114,'87D7AF'=&gt;115,<br />		'87D7D7'=&gt;116,'87D7FF'=&gt;117,'87FF00'=&gt;118,'87FF5F'=&gt;119,'87FF87'=&gt;120,<br />		'87FFAF'=&gt;121,'87FFD7'=&gt;122,'87FFFF'=&gt;123,'AF0000'=&gt;124,'AF005F'=&gt;125,<br />		'AF0087'=&gt;126,'AF00AF'=&gt;127,'AF00D7'=&gt;128,'AF00FF'=&gt;129,'AF5F00'=&gt;130,<br />		'AF5F5F'=&gt;131,'AF5F87'=&gt;132,'AF5FAF'=&gt;133,'AF5FD7'=&gt;134,'AF5FFF'=&gt;135,<br />		'AF8700'=&gt;136,'AF875F'=&gt;137,'AF8787'=&gt;138,'AF87AF'=&gt;139,'AF87D7'=&gt;140,<br />		'AF87FF'=&gt;141,'AFAF00'=&gt;142,'AFAF5F'=&gt;143,'AFAF87'=&gt;144,'AFAFAF'=&gt;145,<br />		'AFAFD7'=&gt;146,'AFAFFF'=&gt;147,'AFD700'=&gt;148,'AFD75F'=&gt;149,'AFD787'=&gt;150,<br />		'AFD7AF'=&gt;151,'AFD7D7'=&gt;152,'AFD7FF'=&gt;153,'AFFF00'=&gt;154,'AFFF5F'=&gt;155,<br />		'AFFF87'=&gt;156,'AFFFAF'=&gt;157,'AFFFD7'=&gt;158,'AFFFFF'=&gt;159,'D70000'=&gt;160,<br />		'D7005F'=&gt;161,'D70087'=&gt;162,'D700AF'=&gt;163,'D700D7'=&gt;164,'D700FF'=&gt;165,<br />		'D75F00'=&gt;166,'D75F5F'=&gt;167,'D75F87'=&gt;168,'D75FAF'=&gt;169,'D75FD7'=&gt;170,<br />		'D75FFF'=&gt;171,'D78700'=&gt;172,'D7875F'=&gt;173,'D78787'=&gt;174,'D787AF'=&gt;175,<br />		'D787D7'=&gt;176,'D787FF'=&gt;177,'D7AF00'=&gt;178,'D7AF5F'=&gt;179,'D7AF87'=&gt;180,<br />		'D7AFAF'=&gt;181,'D7AFD7'=&gt;182,'D7AFFF'=&gt;183,'D7D700'=&gt;184,'D7D75F'=&gt;185,<br />		'D7D787'=&gt;186,'D7D7AF'=&gt;187,'D7D7D7'=&gt;188,'D7D7FF'=&gt;189,'D7FF00'=&gt;190,<br />		'D7FF5F'=&gt;191,'D7FF87'=&gt;192,'D7FFAF'=&gt;193,'D7FFD7'=&gt;194,'D7FFFF'=&gt;195,<br />		'FF0000'=&gt;196,'FF005F'=&gt;197,'FF0087'=&gt;198,'FF00AF'=&gt;199,'FF00D7'=&gt;200,<br />		'FF00FF'=&gt;201,'FF5F00'=&gt;202,'FF5F5F'=&gt;203,'FF5F87'=&gt;204,'FF5FAF'=&gt;205,<br />		'FF5FD7'=&gt;206,'FF5FFF'=&gt;207,'FF8700'=&gt;208,'FF875F'=&gt;209,'FF8787'=&gt;210,<br />		'FF87AF'=&gt;211,'FF87D7'=&gt;212,'FF87FF'=&gt;213,'FFAF00'=&gt;214,'FFAF5F'=&gt;215,<br />		'FFAF87'=&gt;216,'FFAFAF'=&gt;217,'FFAFD7'=&gt;218,'FFAFFF'=&gt;219,'FFD700'=&gt;220,<br />		'FFD75F'=&gt;221,'FFD787'=&gt;222,'FFD7AF'=&gt;223,'FFD7D7'=&gt;224,'FFD7FF'=&gt;225,<br />		'FFFF00'=&gt;226,'FFFF5F'=&gt;227,'FFFF87'=&gt;228,'FFFFAF'=&gt;229,'FFFFD7'=&gt;230,<br />		'FFFFFF'=&gt;231,'080808'=&gt;232,'121212'=&gt;233,'1C1C1C'=&gt;234,'262626'=&gt;235,<br />		'303030'=&gt;236,'3A3A3A'=&gt;237,'444444'=&gt;238,'4E4E4E'=&gt;239,'585858'=&gt;240,<br />		'626262'=&gt;241,'6C6C6C'=&gt;242,'767676'=&gt;243,'808080'=&gt;244,'8A8A8A'=&gt;245,<br />		'949494'=&gt;246,'9E9E9E'=&gt;247,'A8A8A8'=&gt;248,'B2B2B2'=&gt;249,'BCBCBC'=&gt;250,<br />		'C6C6C6'=&gt;251,'D0D0D0'=&gt;252,'DADADA'=&gt;253,'E4E4E4'=&gt;254,'EEEEEE'=&gt;255<br />	)</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a233">233</a></span>)
 		</span>
 	</div>
 
@@ -889,8 +899,31 @@
 		
 
 </div>
-<a name="var$xtermSupport" id="$xtermSupport"><!-- --></A>
+<a name="var$xtermGreyThreshold" id="$xtermGreyThreshold"><!-- --></A>
 <div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$xtermGreyThreshold</span>
+			 = <span class="var-default">	24</span>			(line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a158">158</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Threshhold for approximating greys when evaulating xterm colors</p>
+<p class="description"><p>This is the threashold used by the IsAlmostGrey() method.  Setting this too high  can make normal colors be converted to greyscale, and setting it too low can make  colors that are almost grey show up a black</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$xtermSupport" id="$xtermSupport"><!-- --></A>
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -927,10 +960,10 @@
 		<div class="info-box-body">
 			<A NAME='method_detail'></A>
 <a name="methodCLICommander" id="CLICommander"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Constructor CLICommander</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a278">278</a></span>)
+		<span class="method-title">Constructor CLICommander</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a289">289</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -952,10 +985,10 @@
 			
 	</div>
 <a name="method__destruct" id="__destruct"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Destructor __destruct</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a309">309</a></span>)
+		<span class="method-title">Destructor __destruct</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a320">320</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -977,10 +1010,10 @@
 			
 	</div>
 <a name="methodArgumentPassed" id="ArgumentPassed"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">ArgumentPassed</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a325">325</a></span>)
+		<span class="method-title">ArgumentPassed</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a336">336</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1006,10 +1039,10 @@
 			
 	</div>
 <a name="methodBell" id="Bell"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Bell</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a333">333</a></span>)
+		<span class="method-title">Bell</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a344">344</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1030,10 +1063,10 @@
 			
 	</div>
 <a name="methodClear" id="Clear"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Clear</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a340">340</a></span>)
+		<span class="method-title">Clear</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a351">351</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1054,10 +1087,10 @@
 			
 	</div>
 <a name="methodClosestXtermColor" id="ClosestXtermColor"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">ClosestXtermColor</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a651">651</a></span>)
+		<span class="method-title">ClosestXtermColor</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a662">662</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1086,10 +1119,10 @@
 			
 	</div>
 <a name="methodClosestXtermGrey" id="ClosestXtermGrey"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">ClosestXtermGrey</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a685">685</a></span>)
+		<span class="method-title">ClosestXtermGrey</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a696">696</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1115,10 +1148,10 @@
 			
 	</div>
 <a name="methodClosestXtermOctet" id="ClosestXtermOctet"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">ClosestXtermOctet</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a728">728</a></span>)
+		<span class="method-title">ClosestXtermOctet</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a739">739</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1144,10 +1177,10 @@
 			
 	</div>
 <a name="methodDisableAutoReset" id="DisableAutoReset"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">DisableAutoReset</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a351">351</a></span>)
+		<span class="method-title">DisableAutoReset</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a362">362</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1169,10 +1202,10 @@
 			
 	</div>
 <a name="methodEnableAutoReset" id="EnableAutoReset"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">EnableAutoReset</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a358">358</a></span>)
+		<span class="method-title">EnableAutoReset</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a369">369</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1193,10 +1226,10 @@
 			
 	</div>
 <a name="methodGetArguments" id="GetArguments"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetArguments</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a386">386</a></span>)
+		<span class="method-title">GetArguments</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a397">397</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1230,10 +1263,10 @@
 			
 	</div>
 <a name="methodGetArgumentValue" id="GetArgumentValue"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetArgumentValue</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a405">405</a></span>)
+		<span class="method-title">GetArgumentValue</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a416">416</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1260,10 +1293,10 @@
 			
 	</div>
 <a name="methodGetChar" id="GetChar"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetChar</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a428">428</a></span>)
+		<span class="method-title">GetChar</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a439">439</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1285,10 +1318,10 @@
 			
 	</div>
 <a name="methodGetFormatString" id="GetFormatString"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetFormatString</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a753">753</a></span>)
+		<span class="method-title">GetFormatString</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a764">764</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1320,10 +1353,10 @@
 			
 	</div>
 <a name="methodGetLine" id="GetLine"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">GetLine</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a438">438</a></span>)
+		<span class="method-title">GetLine</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a449">449</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1344,10 +1377,10 @@
 			
 	</div>
 <a name="methodHasXtermSupport" id="HasXtermSupport"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">HasXtermSupport</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a447">447</a></span>)
+		<span class="method-title">HasXtermSupport</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a458">458</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1367,11 +1400,47 @@
 		
 			
 	</div>
+<a name="methodIsAlmostGrey" id="IsAlmostGrey"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">IsAlmostGrey</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a862">862</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines if the color passed is almost a grey</p>
+<p class="description"><p>This function determines if the 3 octets that make up an RGB color are closes  enough to each other to be rendered as a grey.  This prevents tinted greys from  being rendered as black when using xterm colors</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			IsAlmostGrey
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$r</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$g</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$b</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$r</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$g</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$b</span>			</li>
+				</ul>
+		
+			
+	</div>
 <a name="methodMaskedGetLine" id="MaskedGetLine"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">MaskedGetLine</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a458">458</a></span>)
+		<span class="method-title">MaskedGetLine</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a469">469</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1396,7 +1465,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">MaskedPrompt</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a477">477</a></span>)
+		<span class="method-title">MaskedPrompt</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a488">488</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1435,7 +1504,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">ParseFormat</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a847">847</a></span>)
+		<span class="method-title">ParseFormat</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a885">885</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1464,7 +1533,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">ParseTemplate</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a868">868</a></span>)
+		<span class="method-title">ParseTemplate</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a906">906</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1493,7 +1562,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">ProcessArguments</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a875">875</a></span>)
+		<span class="method-title">ProcessArguments</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a913">913</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1517,7 +1586,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Prompt</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a494">494</a></span>)
+		<span class="method-title">Prompt</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a505">505</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1556,7 +1625,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">Reset</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a509">509</a></span>)
+		<span class="method-title">Reset</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a520">520</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1586,7 +1655,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetDefaultBackgroundColor</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a533">533</a></span>)
+		<span class="method-title">SetDefaultBackgroundColor</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a544">544</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1615,7 +1684,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetDefaultForegroundColor</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a524">524</a></span>)
+		<span class="method-title">SetDefaultForegroundColor</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a535">535</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1644,7 +1713,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetDefaultStyle</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a542">542</a></span>)
+		<span class="method-title">SetDefaultStyle</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a553">553</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1673,7 +1742,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetTerminalTitle</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a551">551</a></span>)
+		<span class="method-title">SetTerminalTitle</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a562">562</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1702,7 +1771,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">SetXY</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a561">561</a></span>)
+		<span class="method-title">SetXY</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a572">572</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1734,7 +1803,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">SystemWrite</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a912">912</a></span>)
+		<span class="method-title">SystemWrite</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a950">950</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1766,7 +1835,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">Write</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a578">578</a></span>)
+		<span class="method-title">Write</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a589">589</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1805,7 +1874,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">WriteError</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a610">610</a></span>)
+		<span class="method-title">WriteError</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a621">621</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1834,7 +1903,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">WriteLine</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a622">622</a></span>)
+		<span class="method-title">WriteLine</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a633">633</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1872,7 +1941,7 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">WriteTemplate</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a635">635</a></span>)
+		<span class="method-title">WriteTemplate</span> (line <span class="line-number"><a href="../__filesource/fsource_CLICommander__CLICommander.class.php.html#a646">646</a></span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -1905,7 +1974,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Fri, 13 Jan 2012 08:24:06 -0600 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Fri, 13 Jan 2012 10:15:21 -0600 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>
