@@ -845,7 +845,7 @@ class CLICommander {
 	 * @return string
 	 */
 	private function ParseFormat($matches) {
-		print_r($matches);
+		// Explode the format string
 		$format = explode('|',strtolower($matches['format']));
 		$fg = (isset($format[0]) && !empty($format[0])) ? $format[0] : null;
 		
@@ -854,7 +854,7 @@ class CLICommander {
 		
 		$bg = (isset($format[1]) && !empty($format[1])) ? $format[1] : null;
 		$style = (isset($format[2]) && !empty($format[2])) ? $format[2] : null;
-		echo "Calling GetFormatString($fg, $bg, $style)\n";
+		
 		return $this->GetFormatString($fg, $bg, $style);
 	}
 	
@@ -866,7 +866,7 @@ class CLICommander {
 	 * @return string
 	 */
 	private function ParseTemplate($data) {
-		return str_replace(array('\\{','\\}'),array('{','}'),preg_replace_callback('/\{(?P<format>[^\}\{]+)\}/', array($this, 'ParseFormat'), $data)) . $this->nl;
+		return str_replace(array('{{','}}'),array('{','}'),preg_replace_callback('/\{(?P<format>[^\}\{]+)\}/', array($this, 'ParseFormat'), $data)) . $this->nl;
 	}
 	
 	/**
