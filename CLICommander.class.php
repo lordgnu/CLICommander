@@ -1,8 +1,9 @@
 <?php
 
 /**
- * CLICommander is a set of advanced tools for working with PHP scripts on 
- * the linux/unix command line.  It offers features such as colored output, 
+ * CLICommander is a set of advanced tools for working with PHP scripts on the linux/unix command line.  
+ * 
+ * It offers features such as colored output, 
  * options handling, and a whole lot more.  CLICommander implements most 
  * ANSI escape sequences and offers support for basic 16-color, and xterm
  * 256-color output.
@@ -776,7 +777,7 @@ class CLICommander {
 					if (strlen($fgColor) == 6 || strlen($fgColor) == 7) {
 						// Convert RGB string to the closest xterm capable color
 						$xFormats['foreground'] = sprintf($this->escape, '38;5;'.$this->ClosestXtermColor($fgColor, true));
-					} elseif (is_int($fgColor) && $fgColor >= 0 && $fgColor <= 255) {
+					} elseif ((int)$fgColor >= 0 && (int)$fgColor <= 255) {
 						// Already passed as xterm color index
 						$xFormats['foreground'] = sprintf($this->escape, '38;5;'.$fgColor);
 					} else {
@@ -805,7 +806,7 @@ class CLICommander {
 					if (is_string($bgColor) && (strlen($bgColor == 6) || strlen($bgColor) == 7)) {
 						// Convert RGB string to the closest xterm capable color
 						$xFormats['background'] = sprintf($this->escape, '48;5;'.$this->ClosestXtermColor($bgColor, false));
-					} elseif (is_int($bgColor) && $bgColor >= 0 && $bgColor <= 255) {
+					} elseif ((int)$bgColor >= 0 && (int)$bgColor <= 255) {
 						// Already passed as xterm color index
 						$xFormats['background'] = sprintf($this->escape, '48;5;'.$bgColor);
 					} else {
