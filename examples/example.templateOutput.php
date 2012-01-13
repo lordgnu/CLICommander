@@ -30,7 +30,7 @@ Please see the examples below:
 {|blue}Just the background to blue{reset}
 {||bold}Just the style to bold{reset}
 
-You can also use {9787AF}Xterm{reset} colors in the same fashion
+You can also use {D70000}X{D75F00}t{D7D700}e{00AF00}r{005FFF}m{reset} colors in the same fashion
 
 OUTPUT;
 
