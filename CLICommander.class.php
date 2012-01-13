@@ -763,63 +763,69 @@ class CLICommander {
 		);
 		
 		// Check the foreground color
-		if (array_key_exists($fgColor, $this->foregroundColors)) {
-			$formats['foreground'] = $this->foregroundColors[$fgColor];
-		} else {
-			if ($this->xtermSupport === true) {
-				// Try this as an xterm color
-				$fgColor = strtoupper($fgColor);
-				
-				if (array_key_exists($fgColor, $this->xtermColors)) {
-					// Good xterm color
-					$xFormats['foreground'] = sprintf($this->escape, '38;5;'.$this->xtermColors[$fgColor]);
-				} else {
-					if (strlen($fgColor) == 6 || strlen($fgColor) == 7) {
-						// Convert RGB string to the closest xterm capable color
-						$xFormats['foreground'] = sprintf($this->escape, '38;5;'.$this->ClosestXtermColor($fgColor, true));
-					} elseif ((int)$fgColor >= 0 && (int)$fgColor <= 255) {
-						// Already passed as xterm color index
-						$xFormats['foreground'] = sprintf($this->escape, '38;5;'.$fgColor);
-					} else {
-						// No valid xterm color found
-						unset($formats['foreground']);
-					}
-				}
+		if ($fgColor !== null) {
+			if (array_key_exists($fgColor, $this->foregroundColors)) {
+				$formats['foreground'] = $this->foregroundColors[$fgColor];
 			} else {
-				// No valid ANSI or xterm color found
-				unset($formats['foreground']);
+				if ($this->xtermSupport === true) {
+					// Try this as an xterm color
+					$fgColor = strtoupper($fgColor);
+					
+					if (array_key_exists($fgColor, $this->xtermColors)) {
+						// Good xterm color
+						$xFormats['foreground'] = sprintf($this->escape, '38;5;'.$this->xtermColors[$fgColor]);
+					} else {
+						if (strlen($fgColor) == 6 || strlen($fgColor) == 7) {
+							// Convert RGB string to the closest xterm capable color
+							$xFormats['foreground'] = sprintf($this->escape, '38;5;'.$this->ClosestXtermColor($fgColor, true));
+						} elseif ((int)$fgColor >= 0 && (int)$fgColor <= 255) {
+							// Already passed as xterm color index
+							$xFormats['foreground'] = sprintf($this->escape, '38;5;'.$fgColor);
+						} else {
+							// No valid xterm color found
+							unset($formats['foreground']);
+						}
+					}
+				} else {
+					// No valid ANSI or xterm color found
+					unset($formats['foreground']);
+				}
 			}
+		} else {
+			unset($formats['foreground']);
 		}
 		
 		// Check the background color
-		if (array_key_exists($bgColor, $this->backgroundColors)) {
-			$formats['background'] = $this->backgroundColors[$bgColor];
-		} else {
-			if ($this->xtermSupport === true) {
-				// Try this as an xterm color
-				$bgColor = strtoupper($bgColor);
-				
-				if (array_key_exists($bgColor, $this->xtermColors)) {
-					// Good xterm color
-					$xFormats['background'] = sprintf($this->escape, '38;5;'.$this->xtermColors[$bgColor]);
-				} else {
-					if (strlen($bgColor) == 6 || strlen($bgColor) == 7) {
-						// Convert RGB string to the closest xterm capable color
-						$xFormats['background'] = sprintf($this->escape, '48;5;'.$this->ClosestXtermColor($bgColor, false));
-					} elseif ((int)$bgColor >= 0 && (int)$bgColor <= 255) {
-						// Already passed as xterm color index
-						$xFormats['background'] = sprintf($this->escape, '48;5;'.$bgColor);
-					} else {
-						// No valid xterm color found
-						$formats['background'] = $this->backgroundColors['default'];
-						unset($formats['background']);
-					}
-				}
+		if ($bgColor !== null) {
+			if (array_key_exists($bgColor, $this->backgroundColors)) {
+				$formats['background'] = $this->backgroundColors[$bgColor];
 			} else {
-				// No valid ANSI or xterm color found
-				$formats['background'] = $this->backgroundColors['default'];
-				unset($formats['background']);
+				if ($this->xtermSupport === true) {
+					// Try this as an xterm color
+					$bgColor = strtoupper($bgColor);
+					
+					if (array_key_exists($bgColor, $this->xtermColors)) {
+						// Good xterm color
+						$xFormats['background'] = sprintf($this->escape, '38;5;'.$this->xtermColors[$bgColor]);
+					} else {
+						if (strlen($bgColor) == 6 || strlen($bgColor) == 7) {
+							// Convert RGB string to the closest xterm capable color
+							$xFormats['background'] = sprintf($this->escape, '48;5;'.$this->ClosestXtermColor($bgColor, false));
+						} elseif ((int)$bgColor >= 0 && (int)$bgColor <= 255) {
+							// Already passed as xterm color index
+							$xFormats['background'] = sprintf($this->escape, '48;5;'.$bgColor);
+						} else {
+							// No valid xterm color found
+							unset($formats['background']);
+						}
+					}
+				} else {
+					// No valid ANSI or xterm color found
+					unset($formats['background']);
+				}
 			}
+		} else {
+			unset($formats['background']);
 		}
 		
 		// Check the style
@@ -839,6 +845,7 @@ class CLICommander {
 	 * @return string
 	 */
 	private function ParseFormat($matches) {
+		print_r($matches);
 		$format = explode('|',strtolower($matches['format']));
 		$fg = (isset($format[0]) && !empty($format[0])) ? $format[0] : null;
 		
@@ -847,7 +854,7 @@ class CLICommander {
 		
 		$bg = (isset($format[1]) && !empty($format[1])) ? $format[1] : null;
 		$style = (isset($format[2]) && !empty($format[2])) ? $format[2] : null;
-		
+		echo "Calling GetFormatString($fg, $bg, $style)\n";
 		return $this->GetFormatString($fg, $bg, $style);
 	}
 	
