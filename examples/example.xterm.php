@@ -13,7 +13,7 @@ if ($cli->HasXtermSupport()) {
 		if ($a == 7 || $a == 15) {
 			$cli->WriteLine('  ',255,$a);
 		} else {
-			$cli->write('  ', 255,$a);
+			$cli->write('  ',255,$a);
 		}
 	}
 	for ($a = 0; $a < 16; $a++) {
